@@ -12,7 +12,7 @@
 #' data_list()
 data_list <- function(be_silent = TRUE) {
 
-  path_data <- system.file('extdata/data', package = 'vdr')
+  path_data <- get_pkg_dir('data')
 
   my_files <- list.files(path_data)
 
@@ -24,8 +24,8 @@ data_list <- function(be_silent = TRUE) {
     }
 
     message('')
-    cli::cli_alert_success("\n\nYou can read files using vdr::data_import(name_of_file)")
-    cli::cli_alert_success("Example: df <- vdr::data_import('{sample(my_files, 1)}')")
+    cli::cli_alert_success("\n\nYou can read files using afedR3::data_import(name_of_file)")
+    cli::cli_alert_success("Example: df <- afedR3::data_import('{sample(my_files, 1)}')")
 
   }
 
@@ -52,17 +52,19 @@ data_path <- function(name_dataset) {
     #stop('Cant find name ', name_dataset, ' in list of available tables.')
   #}
 
-  path_out <- system.file(paste0('extdata/data/', name_dataset),
-                          package = 'vdr')
+  path_data <- fs::path(
+    get_pkg_dir('data'),
+    name_dataset
+  )
 
-  if (path_out == '') {
+  if (path_data == '') {
     stop('Cant find name ', name_dataset, ' in list of available tables.')
   }
 
-  return(path_out)
+  return(path_data)
 }
 
-#' Import data from package vdr
+#' Import data from package
 #'
 #' This is a helper function of book "Visualização de dados com o R" by Marcelo S. Perlin.
 #' With this function you'll be able to read the tables used in the book using only file names.

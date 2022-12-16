@@ -11,7 +11,7 @@
 #'  type_doc = "html")
 exercises_build <- function(folder_in, type_doc) {
 
-  link_eoc_exercises <- links_get()$book_blog_vdr
+  link_eoc_exercises <- links_get()$book_blog
 
   files_in <- fs::dir_ls(folder_in)
 
@@ -94,11 +94,11 @@ exercise_to_text <- function(f_in, my_counter, type_doc) {
 #' @examples
 #' exercises_dir_get(exercises_dir_list()[1])
 exercises_dir_get <- function(name_dir) {
-  package_dir <- system.file("extdata/eoce",
-                             package = "vdr")
+  package_dir <- get_pkg_dir("eoce")
 
   this_path <- fs::path(
     package_dir,
+    'exercises',
     name_dir
   )
 
@@ -118,10 +118,12 @@ exercises_dir_get <- function(name_dir) {
 #' @examples
 #' exercises_dir_list()
 exercises_dir_list <- function(silent = TRUE) {
-  package_dir <- system.file("extdata/eoce",
-                             package = "vdr")
+  exercises_dir <- fs::path(
+    get_pkg_dir("eoce"),
+    'exercises'
+  )
 
-  available_dirs <- basename(fs::dir_ls(package_dir))
+  available_dirs <- basename(fs::dir_ls(exercises_dir))
 
   if (!silent) {
     cli::cli_h3("List of available eoce")
@@ -137,7 +139,7 @@ exercises_dir_list <- function(silent = TRUE) {
 #' Compiles solution of exercises
 #'
 #' This function will compile the solution of exercises from the book to
-#' a .html file. Aternativelly, all solutiona are available at <www.msperlin.com/vdr>
+#' a .html file. Aternativelly, all solutiona are available at <www.msperlin.com/afedR>
 #'
 #' @param dir_output directory where to copy html file (e.g. '~/Desktop')
 #' @param run_chunks flag to run code chunks or not. If TRUE, might take a while to process all code.
@@ -150,7 +152,7 @@ exercises_dir_list <- function(silent = TRUE) {
 #' \dontrun{
 #' exercises_compile_solution(dir_output = fs::path_temp())
 #' }
-exercises_compile_solution <- function(dir_output = "~/vdr-solutions",
+exercises_compile_solution <- function(dir_output = "~/afedR-solutions",
                                        run_chunks = TRUE) {
   fs::dir_create(dir_output)
 
@@ -168,9 +170,10 @@ exercises_compile_solution <- function(dir_output = "~/vdr-solutions",
   temp_dir <- f_out <- fs::file_temp('eoc-compilation')
   fs::dir_create(temp_dir)
 
-  html_template <-   fs::path(system.file("extdata/templates",
-                                          package = "vdr"),
-                              "html_template.html")
+  html_template <-   fs::path(
+    get_pkg_dir("templates"),
+    "html_template.html"
+  )
 
   cli::cli_alert_info("Compiling solutions (may take a while..)")
   exams::exams2html(f_exerc, n = 1,

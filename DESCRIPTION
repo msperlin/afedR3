@@ -6,7 +6,7 @@ Date: 2023-01-01
 Author: Marcelo S. Perlin
 Maintainer: Marcelo S. Perlin <marceloperlin@gmail.com>
 Description: Includes functions for retrieving data files from the book and building exercises.
-License: GPL-2
+License: MIT + file LICENSE
 BugReports: https://github.com/msperlin/afedR3/issues
 URL: https://github.com/msperlin/afedR3/
 Encoding: UTF-8
@@ -20,5 +20,14 @@ Imports:
   dplyr,
   stats,
   exams,
-  tinytex,
-  tidyquant
+  crayon,
+  cli,
+  fs,
+  httr,
+  knitr,
+  remotes,
+  scales,
+  stringr 
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

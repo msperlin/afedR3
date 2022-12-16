@@ -19,9 +19,13 @@ add_tex_content(
 \arguments{
 \item{f_in}{File with tex code}
 
+\item{f_out}{name (path) of output file}
+
 \item{student_name}{Name of student}
 
 \item{student_version}{Version of student}
+
+\item{student_id}{id of student}
 
 \item{n_q}{Number of questions in exercise}
 

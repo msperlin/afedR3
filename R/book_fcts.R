@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' bookfiles_get()
-bookfiles_get <- function(path_to_copy = '~/vdr-files') {
+bookfiles_get <- function(path_to_copy = '~/afedR-files') {
 
   if (!dir.exists(path_to_copy)) {
 
@@ -19,7 +19,7 @@ bookfiles_get <- function(path_to_copy = '~/vdr-files') {
   }
 
   # data files
-  data_path_files <- system.file('extdata/data', package = 'vdr')
+  data_path_files <- get_pkg_dir('data')
   data_path_to_copy <- file.path(path_to_copy, 'data')
 
   cli::cli_alert_info('Copying data files files to {fs::path_expand(data_path_to_copy)}')
@@ -39,7 +39,7 @@ bookfiles_get <- function(path_to_copy = '~/vdr-files') {
                                          fs::path_expand(path_to_copy)))
 
   # scripts
-  data_path_files <- system.file('extdata/book-scripts', package = 'vdr')
+  data_path_files <- get_pkg_dir('book-scripts')
   data_path_to_copy <- file.path(path_to_copy, 'book-scripts')
 
   cli::cli_alert_info('Copying book script files to {fs::path_expand(data_path_to_copy)}')

@@ -9,11 +9,10 @@ format_date <- function(x) {
 
 replace_str_file <- function(f.in, f.out, str.id, str.replace) {
 
-  require(tidyverse)
-  txt.out <- str_c(read_lines(f.in), collapse = '\n')
+  txt.out <- stringr::str_c(read_lines(f.in), collapse = '\n')
 
   for (i.str in seq(str.id)) {
-    txt.out <- str_replace(txt.out,
+    txt.out <- stringr::str_replace(txt.out,
                            pattern = fixed(str.id[i.str]),
                            replacement = str.replace[i.str])
 
@@ -28,7 +27,6 @@ replace_str_file <- function(f.in, f.out, str.id, str.replace) {
 print.pretty.df <- function(my.print.df) {
   #my.align <- paste0('|l|', paste0(rep('l', ncol(my.print.df)-1), collapse = '|'), '|'  )
   #knitr::kable(my.print.df, row.names = F, format = 'html', align = my.align,digits = 2, format.args = list(decimal = ',') )
-  #require(kableExtra)
 
   knitr::kable(my.print.df, row.names = F,
                format.args = list(decimal.mark = ',',
@@ -175,8 +173,6 @@ build_answers_text <- function(text1,
                                text2,
                                text3) {
 
-  require(glue)
-
   text1_chosen <- text1[sample(1:nrow(text1), 1), ]
   text2_chosen <- text2[sample(1:nrow(text2), 1), ]
   text3_chosen <- text3[sample(1:nrow(text3), 1), ]
@@ -185,10 +181,10 @@ build_answers_text <- function(text1,
                            text2_chosen$sol,
                            text3_chosen$sol), collapse = ', ')
 
-  other_answers <- expand_grid(col1 = c('TRUE', 'FALSE'),
+  other_answers <- tidyr::expand_grid(col1 = c('TRUE', 'FALSE'),
                                col2 = c('TRUE', 'FALSE'),
                                col3 = c('TRUE', 'FALSE')) %>%
-    mutate(answer = glue('{col1}, {col2}, {col3}') ) %>%
+    mutate(answer = glue::glue('{col1}, {col2}, {col3}') ) %>%
     dplyr::filter(answer != right_answer)
 
   my_answers <- c(right_answer,

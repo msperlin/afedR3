@@ -4,7 +4,7 @@
 \alias{exercises_compile_solution}
 \title{Compiles solution of exercises}
 \usage{
-exercises_compile_solution(dir_output = "~/vdr-solutions", run_chunks = TRUE)
+exercises_compile_solution(dir_output = "~/afedR-solutions", run_chunks = TRUE)
 }
 \arguments{
 \item{dir_output}{directory where to copy html file (e.g. '~/Desktop')}
@@ -16,7 +16,7 @@ path to compiled file
 }
 \description{
 This function will compile the solution of exercises from the book to
-a .html file. Aternativelly, all solutiona are available at <www.msperlin.com/vdr>
+a .html file. Aternativelly, all solutiona are available at <www.msperlin.com/afedR>
 }
 \examples{
 

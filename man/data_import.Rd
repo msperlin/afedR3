@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_fcts.R
 \name{data_import}
 \alias{data_import}
-\title{Import data from package vdr}
+\title{Import data from package}
 \usage{
 data_import(name_dataset)
 }

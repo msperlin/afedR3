@@ -117,9 +117,11 @@ compile_pdf_exercises <- function(students_names,
 #' Used for replacing names, id, version and so on on tex exercise files.
 #'
 #' @param f_in File with tex code
+#' @param f_out name (path) of output file
 #' @param dir_out Folder out
 #' @param student_name Name of student
 #' @param student_version Version of student
+#' @param student_id id of student
 #' @param n_q Number of questions in exercise
 #' @param class_name Name of class
 #' @param exercise_name Name of exercise

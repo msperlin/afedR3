@@ -8,7 +8,6 @@
 #' @examples
 #' format_cash(10)
 format_cash <- function(x, type_cash = 'USD') {
-  require(scales)
 
   if (type_cash == 'USD') {
     x_fmt <- scales::dollar(x,
