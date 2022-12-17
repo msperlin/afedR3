@@ -48,9 +48,12 @@ format_percent <- function(x) {
   return(x_fmt)
 }
 
-#' Formats date to BR standard (DD/MM/YYYY)
+#' Formats date to ISO format (YYYY-MM-DD)
 #'
-#' @param x a date in ISO format (YYYY-MM-DD)
+#' This function sounds redundante, but leave it if, in the future, I might change
+#' the date format in the book.
+#'
+#' @param x a date
 #'
 #' @return formatted date
 #' @export
@@ -60,7 +63,7 @@ format_percent <- function(x) {
 format_date <- function(x) {
 
   x <- as.Date(x)
-  x_fmt <- format(x, '%d/%m/%Y')
+  x_fmt <- format(x, '%Y-%m-%d')
 
   return(x_fmt)
 }

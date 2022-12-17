@@ -72,10 +72,10 @@ bookfiles_get <- function(path_to_copy = '~/afedR-files') {
 book_strings_get <- function() {
 
   l_out <- list(
-    book_title = "Visualiza\\u00e7\\u00e3o de Dados com o R",
-    book_subtitle = "Aplica\\u00e7\\u00f5es para Finan\\u00e7as e Economia",
-    publication_years = c(2022),
-    publication_names = c("Edi\\u00e7 01"),
+    book_title = "Analyzing Financial and Economic Data with R",
+    book_subtitle = "",
+    publication_years = c(2023),
+    publication_names = c("Edition 03"),
     author_name = "Marcelo S. Perlin",
     author_email = "marcelo.perlin@ufrgs.br"
   )
@@ -84,30 +84,3 @@ book_strings_get <- function() {
 }
 
 
-#' Use color in book text
-#'
-#' From: https://bookdown.org/yihui/rmarkdown-cookbook/font-color.html
-#'
-#' @param x A text to be colorized
-#' @param color the color (e.g. "red")
-#'
-#' @return a colorized version of string (html or latex)
-#' @export
-#'
-#' @examples
-#' colorize("ABC", "red")
-colorize <- function(x, color) {
-
-  if (knitr::is_latex_output()) {
-
-    sprintf("\\textcolor{%s}{%s}", color, x)
-
-  } else if (knitr::is_html_output()) {
-
-    sprintf("<span style='color: %s;'>%s</span>", color,
-            x)
-
-  } else {
-    x
-  }
-}

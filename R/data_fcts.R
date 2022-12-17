@@ -64,28 +64,3 @@ data_path <- function(name_dataset) {
   return(path_data)
 }
 
-#' Import data from package
-#'
-#' This is a helper function of book "Visualização de dados com o R" by Marcelo S. Perlin.
-#' With this function you'll be able to read the tables used in the book using only file names.
-#'
-#' @param name_dataset Name of the dataset filename (see \link{data_list} for more details)
-#'
-#' @return A path to the data file
-#' @export
-#'
-#' @examples
-#' file_name <- data_list()[1]
-#' df <- data_import(file_name)
-#' df
-data_import <- function(name_dataset) {
-
-  path_data <- data_path(name_dataset)
-
-  df_out <- readr::read_csv(path_data,
-                            col_types = readr::cols())
-
-  return(df_out)
-}
-
-

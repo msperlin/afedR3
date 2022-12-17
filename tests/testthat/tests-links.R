@@ -19,15 +19,6 @@ test_that("test of main book links ", {
 
   book_links <- links_get()
 
-  book_links <- c(
-    book_links$book_github,
-    book_links$blog_site,
-    # TODO
-    #book_links$book_blog_site
-    book_links$book_amazon_ebook,
-    book_links$book_amazon_print
-  )
-
   flags <- purrr::map(book_links, check_link)
 
 })

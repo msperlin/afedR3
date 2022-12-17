@@ -152,7 +152,7 @@ exercises_dir_list <- function(silent = TRUE) {
 #' \dontrun{
 #' exercises_compile_solution(dir_output = fs::path_temp())
 #' }
-exercises_compile_solution <- function(dir_output = "~/afedR-solutions",
+exercises_compile_solution <- function(dir_output = "~/afedR3-solutions",
                                        run_chunks = TRUE) {
   fs::dir_create(dir_output)
 
@@ -183,11 +183,10 @@ exercises_compile_solution <- function(dir_output = "~/afedR-solutions",
 
   # copy files
   f_name <- stringr::str_glue(
-    '{format(Sys.time(), "%Y%m%d %H%M%S")}-Solutions-Exercises-VDR.html'
+    '{format(Sys.time(), "%Y%m%d %H%M%S")}-Solutions-Exercises-AFEDR.html'
   )
 
   f_out <- fs::path(dir_output, f_name)
-
 
   cli::cli_alert_info("Copying files")
   fs::file_copy(
