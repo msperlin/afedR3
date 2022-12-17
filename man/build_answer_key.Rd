@@ -17,3 +17,8 @@ A dataframe
 \description{
 Builds answer key
 }
+\examples{
+\dontrun{
+# no example..
+}
+}

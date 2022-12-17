@@ -10,13 +10,13 @@ format_date <- function(x) {
 replace_str_file <- function(f.in, f.out, str.id, str.replace) {
 
   txt.out <- stringr::str_c(
-    stringr::read_lines(f.in),
+    readr::read_lines(f.in),
     collapse = '\n'
     )
 
   for (i.str in seq(str.id)) {
     txt.out <- stringr::str_replace(txt.out,
-                           pattern = fixed(str.id[i.str]),
+                           pattern = stringr::fixed(str.id[i.str]),
                            replacement = str.replace[i.str])
 
   }
@@ -49,6 +49,7 @@ print.pretty.df <- function(my.print.df) {
 #' @export
 #'
 #' @examples
+#' check_answers(1:5)
 check_answers <- function(answers_in) {
 
   n_answers <- 5
@@ -121,6 +122,7 @@ decimal_places <- function(x) {
 #' @export
 #'
 #' @examples
+#' make_random_answers(10)
 make_random_answers <- function(solution,
                                 candidates = NA,
                                 is_cash = FALSE) {
@@ -162,16 +164,21 @@ make_random_answers <- function(solution,
   return(my_answers)
 }
 
-#' Builds answer text
+#' Creates text for random questions
 #'
-#' @param text1 string
-#' @param text2  string
-#' @param text3  string
+#' @param text1 tibble 1
+#' @param text2 tibble 2
+#' @param text3 tibble 3
 #'
-#' @return a list
+#' @return A list
 #' @export
 #'
 #' @examples
+#'
+#' tibble1 <- dplyr::tibble(text = c("ABC1", "ABC2", "ABC3"), sol =  c(TRUE, FALSE, TRUE))
+#' tibble2 <- dplyr::tibble(text = c("ABC1", "ABC2", "ABC3"), sol = c(TRUE, FALSE, TRUE))
+#' tibble3 <- dplyr::tibble(text = c("ABC1", "ABC2", "ABC3"), sol = c(TRUE, FALSE, TRUE))
+#' build_answers_text(tibble1, tibble2, tibble3)
 build_answers_text <- function(text1,
                                text2,
                                text3) {
@@ -185,9 +192,9 @@ build_answers_text <- function(text1,
                            text3_chosen$sol), collapse = ', ')
 
   other_answers <- tidyr::expand_grid(col1 = c('TRUE', 'FALSE'),
-                               col2 = c('TRUE', 'FALSE'),
-                               col3 = c('TRUE', 'FALSE')) %>%
-    mutate(answer = glue::glue('{col1}, {col2}, {col3}') ) %>%
+                                      col2 = c('TRUE', 'FALSE'),
+                                      col3 = c('TRUE', 'FALSE')) |>
+    dplyr::mutate(answer = glue::glue('{col1}, {col2}, {col3}') ) |>
     dplyr::filter(answer != right_answer)
 
   my_answers <- c(right_answer,

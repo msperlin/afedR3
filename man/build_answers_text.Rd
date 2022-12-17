@@ -2,20 +2,27 @@
 % Please edit documentation in R/exams_webex_fcts.R
 \name{build_answers_text}
 \alias{build_answers_text}
-\title{Builds answer text}
+\title{Creates text for random questions}
 \usage{
 build_answers_text(text1, text2, text3)
 }
 \arguments{
-\item{text1}{string}
+\item{text1}{tibble 1}
 
-\item{text2}{string}
+\item{text2}{tibble 2}
 
-\item{text3}{string}
+\item{text3}{tibble 3}
 }
 \value{
-a list
+A list
 }
 \description{
-Builds answer text
+Creates text for random questions
+}
+\examples{
+
+tibble1 <- dplyr::tibble(text = c("ABC1", "ABC2", "ABC3"), sol =  c(TRUE, FALSE, TRUE))
+tibble2 <- dplyr::tibble(text = c("ABC1", "ABC2", "ABC3"), sol = c(TRUE, FALSE, TRUE))
+tibble3 <- dplyr::tibble(text = c("ABC1", "ABC2", "ABC3"), sol = c(TRUE, FALSE, TRUE))
+build_answers_text(tibble1, tibble2, tibble3)
 }

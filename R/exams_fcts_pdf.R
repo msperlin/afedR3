@@ -12,6 +12,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' # no exapmle here..
+#' }
 compile_pdf_exercises <- function(students_names,
                                 students_ids,
                                 class_name = 'Sample Class',
@@ -21,8 +24,10 @@ compile_pdf_exercises <- function(students_names,
                                 solution = FALSE) {
 
   # set template
-  template_tex_file <- system.file('extdata/exams_files/templates/template_pdf_en.tex',
-                                   package = 'afedR')
+  template_tex_file <- fs::path(
+    get_pkg_dir('/eoce/templates'),
+    'template_pdf_en.tex'
+    )
 
   # find exercises
   path_exercises <- get_EOC_dir()
@@ -192,9 +197,9 @@ add_tex_content <- function(f_in,
 #' @export
 #'
 #' @examples
+#' get_EOC_dir()
 get_EOC_dir <- function() {
-  eoc_dir <- system.file('extdata/exams_files/02-EOCE-Rmd/',
-                         package = 'afedR')
+  eoc_dir <- get_pkg_dir('eoce/exercises/')
 
   return(eoc_dir)
 }
@@ -208,6 +213,9 @@ get_EOC_dir <- function() {
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' # no example..
+#' }
 build_answer_key <- function(my_exam, students_names) {
 
   n_ver <- length(my_exam)

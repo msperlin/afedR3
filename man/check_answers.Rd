@@ -15,3 +15,6 @@ TRUE or FALSE
 \description{
 Check exams answers
 }
+\examples{
+check_answers(1:5)
+}

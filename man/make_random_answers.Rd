@@ -19,3 +19,6 @@ Char vector with randomized answers
 \description{
 Creates random answers
 }
+\examples{
+make_random_answers(10)
+}

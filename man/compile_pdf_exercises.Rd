@@ -35,3 +35,8 @@ a dtaframe with solutions
 \description{
 Builds pdf exercices
 }
+\examples{
+\dontrun{
+# no exapmle here..
+}
+}

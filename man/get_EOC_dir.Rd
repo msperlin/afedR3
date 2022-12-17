@@ -12,3 +12,6 @@ A string
 \description{
 Returns EOC folder
 }
+\examples{
+get_EOC_dir()
+}
