@@ -9,7 +9,10 @@ format_date <- function(x) {
 
 replace_str_file <- function(f.in, f.out, str.id, str.replace) {
 
-  txt.out <- stringr::str_c(read_lines(f.in), collapse = '\n')
+  txt.out <- stringr::str_c(
+    stringr::read_lines(f.in),
+    collapse = '\n'
+    )
 
   for (i.str in seq(str.id)) {
     txt.out <- stringr::str_replace(txt.out,
