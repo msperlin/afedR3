@@ -8,9 +8,9 @@ my_sol <- pkgs$package[1]
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
-my_answers <- make_random_answers(my_sol, unique(pkgs$package))
+my_answers <- afedR3::make_random_answers(my_sol, unique(pkgs$package))
 
-check_answers(my_answers)
+afedR3::check_answers(my_answers)
 ```
 
 Question

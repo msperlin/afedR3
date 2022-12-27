@@ -5,7 +5,7 @@ my_answers <- c('S+',
                 'Matlab',
                 'Javascript')
 
-#check_answers(my_answers)
+afedR3::check_answers(my_answers)
 ```
 
 Question
