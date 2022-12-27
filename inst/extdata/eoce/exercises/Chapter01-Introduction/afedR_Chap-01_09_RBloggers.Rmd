@@ -5,7 +5,7 @@ my_answers <- c('Encontrei os artigos!',
                 'Não irei!',
                 'TLDR')
 
-check_answers(my_answers)
+afedR3::check_answers(my_answers)
 ```
 
 Question

@@ -1,48 +1,52 @@
+# global vars
+first_date <- '2010-01-01'
+last_date <- '2023-01-01'
+
 # get ibov data
-library(BatchGetSymbols)
-library(tidyverse)
-
-my_d <- dirname(rstudioapi::getActiveDocumentContext()$path)
-setwd(my_d)
-
-# ibov
-my.f <- 'data/Ibov.csv'
-
+my_f <- 'data/CH04-ibovespa.csv'
 dir.create('data')
 
-if (file.exists(my.f)) invisible(file.remove(my.f))
+if (file.exists(my_f)) invisible(file.remove(my_f))
 
-df <- BatchGetSymbols::BatchGetSymbols('^BVSP',
-                                       first.date = '2010-01-01',
-                                       last.date = '2021-01-01')[[2]]
+df_ibov <- yfR::yf_get(
+  '^BVSP',
+  first_date,
+  last_date)
 
-df <- dplyr::select(df, ref.date, price.close)
+df_ibov <- df_ibov |>
+  dplyr::select(ref_date, price_close)
 
-#readr::write_csv(x = df, path = my.f, col_names = TRUE)
-write_csv(df, my.f)
-xlsx::write.xlsx(df, 'data/Ibov_xlsx.xlsx', sheetName = 'Sheet1', row.names = FALSE)
+#readr::write_csv(x = df, path = my_f, col_names = TRUE)
+readr::write_csv(df, my_f)
+
+my_f <- 'data/CH04-ibovespa-Excel.xlsx'
+writexl::write_xlsx(df_ibov,
+                 my_f)
 
 # sp500
 # ibov
-my.f <- 'data/SP500.csv'
+my_f <- 'data/CH04-SP500.csv'
 
-dir.create('data')
+if (file.exists(my_f)) invisible(file.remove(my_f))
 
-if (file.exists(my.f)) invisible(file.remove(my.f))
+df_sp500 <- yfR::yf_get(
+  '^GSPC',
+  first_date,
+  last_date)
 
-df <- BatchGetSymbols::BatchGetSymbols('^BVSP',
-                                       first.date = '2010-01-01',
-                                       last.date = '2021-01-01')[[2]]
+df_sp500 <- df_sp500 |>
+  dplyr::select(ref_date, price_close)
 
-df <- dplyr::select(df, ref.date, price.close)
+#readr::write_csv(x = df, path = my_f, col_names = TRUE)
+readr::write_csv(df_sp500, my_f)
 
-#readr::write_csv(x = df, path = my.f, col_names = TRUE)
-write_csv(df, my.f)
-xlsx::write.xlsx(df, 'data/SP500_xlsx.xlsx', sheetName = 'Sheet1', row.names = FALSE)
+my_f <- 'data/CH04-SP500-Excel.xlsx'
+writexl::write_xlsx(df_sp500, my_f)
+
 
 
 # bizare csv file 01
-f_out <- 'data/funky_csv_file.csv'
+f_out <- 'data/CH04-funky_csv_file.csv'
 
 set.seed(100)
 my_N <- 100
@@ -97,9 +101,3 @@ my_N <- 100
 df_cities <- read.csv('raw_data_csv/br_cities.csv')
 
 write_delim(x = df_cities, file = f_out, delim = '\t')
-
-# grunfeld
-data(Grunfeld)
-
-write_csv(Grunfeld, file = 'data/grunfeld.csv')
-
