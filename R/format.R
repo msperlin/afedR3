@@ -42,8 +42,8 @@ format_percent <- function(x) {
 
   x_fmt <- scales::percent(x,
                            accuracy = 0.01,
-                           decimal.mark = ',',
-                           big.mark = '.')
+                           decimal.mark = '.',
+                           big.mark = ',')
 
   return(x_fmt)
 }

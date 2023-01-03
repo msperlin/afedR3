@@ -1,6 +1,4 @@
 ```{r solution, echo = FALSE, results = "hide"}
-library(BatchGetSymbols)
-
 first_date <- '2019-01-01'
 last_date  <- '2020-01-01'
 
@@ -8,14 +6,15 @@ my_tickers <- c('AAPL', 'BAC',
                 'GE', 'TSLA',
                 'SNAP')
 	
-df_prices <- BatchGetSymbols(tickers = my_tickers, 
-                             first.date = first_date, 
-                             last.date = last_date)[[2]]
+df_prices <- yfR::yf_get(
+  tickers = my_tickers, 
+  first_date = first_date, 
+  last_date = last_date)
 
 split_l <- split(df_prices, df_prices$ticker)
 
 my_fct <- function(df_in) {
-  price_vec <- df_in$price.adjusted
+  price_vec <- df_in$price_adjusted
   ticker_in <- df_in$ticker[1]
   
   total_ret <- last(price_vec)/first(price_vec) - 1
@@ -34,7 +33,7 @@ my_sol <- winner
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
-my_answers <- afedR::make_random_answers(my_sol, candidates = unique(df_results$ticker))
+my_answers <- afedR3::make_random_answers(my_sol, candidates = unique(df_results$ticker))
 ```
 
 Question

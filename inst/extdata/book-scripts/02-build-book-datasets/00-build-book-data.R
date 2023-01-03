@@ -11,7 +11,7 @@ build_path <- function(f_in) {
 
 
 # ibov data ----
-my_f <- build_path('CH04-ibovespa.csv')
+my_f <- build_path('CH04_ibovespa.csv')
 
 if (file.exists(my_f)) invisible(file.remove(my_f))
 
@@ -26,12 +26,12 @@ df_ibov <- df_ibov |>
 #readr::write_csv(x = df, path = my_f, col_names = TRUE)
 readr::write_csv(df_ibov, my_f)
 
-my_f <- build_path('CH04-ibovespa-Excel.xlsx')
+my_f <- build_path('CH04_ibovespa-Excel.xlsx')
 writexl::write_xlsx(df_ibov,
                  my_f)
 
 # sp500 data ----
-my_f <- build_path('CH04-SP500.csv')
+my_f <- build_path('CH04_SP500.csv')
 
 if (file.exists(my_f)) invisible(file.remove(my_f))
 
@@ -46,13 +46,13 @@ df_sp500 <- df_sp500 |>
 #readr::write_csv(x = df, path = my_f, col_names = TRUE)
 readr::write_csv(df_sp500, my_f)
 
-my_f <- build_path('CH04-SP500-Excel.xlsx')
+my_f <- build_path('CH04_SP500-Excel.xlsx')
 writexl::write_xlsx(df_sp500, my_f)
 
 
 
 # bizare csv file 01 ----
-f_out <- build_path('CH04-funky_csv_file.csv')
+f_out <- build_path('CH04_funky-csv-file.csv')
 
 example_df <- wakefield::r_data(n = 100)
 
@@ -91,6 +91,40 @@ write.table(x = example_df, file = f_out, sep = '|', quote = FALSE,
             append = TRUE, fileEncoding = 'UTF-8', dec = '?', row.names = FALSE)
 
 
+# temp fst file ----
+df_example <- wakefield::r_data(100)
+f_out <- build_path('CH04_example-fst.fst')
+
+fst::write_fst(df_example, f_out)
+
+# sqlite file ----
+# set number of rows in df
+N <- 1000
+f_sqlite <- build_path('CH04_example-sqlite.SQLite')
+
+# create simulated dataframe
+my_large_df_1 <- data.frame(x=runif(N),
+                            G= sample(c('A','B'),
+                                      size = N,
+                                      replace = TRUE))
+
+my_large_df_2 <- data.frame(x=runif(N),
+                            G = sample(c('A','B'),
+                                       size = N,
+                                       replace = TRUE))
+# open connection
+my_con <- RSQLite::dbConnect(drv = RSQLite::SQLite(), f_sqlite)
+
+# write df to sqlite
+RSQLite::dbWriteTable(conn = my_con, name = 'MyTable1',
+                      value = my_large_df_1)
+
+RSQLite::dbWriteTable(conn = my_con, name = 'MyTable2',
+                      value = my_large_df_2)
+
+# disconnect
+RSQLite::dbDisconnect(my_con)
+
 # tsv file (exercises) ----
 f_out <- build_path('CH04_example-tsv.tsv')
 
@@ -101,7 +135,7 @@ df_example <- wakefield::r_data(100)
 readr::write_delim(x = df_example, file = f_out, delim = '\t')
 
 # pride and prejudice -----
-f_out <- build_path('CH04-price-and-prejudice.txt')
+f_out <- build_path('CH04_price-and-prejudice.txt')
 id <- 1342
 df_book <- gutenbergr::gutenberg_download(id)
 

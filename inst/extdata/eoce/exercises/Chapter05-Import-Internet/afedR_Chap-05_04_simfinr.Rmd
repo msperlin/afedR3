@@ -3,7 +3,7 @@ library(simfinR)
 library(tidyverse)
 
 # set api key - make sure you got your own at https://simfin.com/data/access/api
-my_api_key <- read_lines('~/Dropbox/98-pass_and_bash/.api_key_simfin.txt')
+my_api_key <- read_lines('~/GDrive/98-pass-and-bash/.api_key_simfin.txt')
 # get info
 
 df_info_companies <- simfinR_get_available_companies(my_api_key)
@@ -32,7 +32,7 @@ my_sol <- latest_acc_value
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
-my_answers <- afedR::make_random_answers(my_sol, 
+my_answers <- afedR3::make_random_answers(my_sol, 
                                          is_cash = TRUE)
 ```
 

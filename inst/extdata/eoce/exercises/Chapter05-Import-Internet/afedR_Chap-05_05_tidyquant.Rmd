@@ -15,7 +15,7 @@ my_sol <- highest_weight
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
-my_answers <- afedR::make_random_answers(my_sol, 
+my_answers <- afedR3::make_random_answers(my_sol, 
                                   candidates = comp_idx$company)
 ```
 

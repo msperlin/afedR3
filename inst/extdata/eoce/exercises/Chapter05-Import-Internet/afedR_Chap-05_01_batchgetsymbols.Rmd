@@ -1,15 +1,14 @@
 ```{r solution, echo = FALSE, results = "hide"}
-library(BatchGetSymbols)
-
-ticker <- 'FB'
+ticker <- 'META'
 first_date <- '2019-01-01'
-last_date  <- '2020-01-01'
+last_date  <- '2023-01-01'
 
-df_prices <- BatchGetSymbols(tickers = ticker, 
-                             first.date = first_date, 
-                             last.date = last_date)[[2]]
+df_prices <- yfR::yf_get(
+  tickers = ticker, 
+  first_date = first_date, 
+  last_date = last_date)
 
-my_sol <- min(df_prices$price.close, 
+my_sol <- min(df_prices$price_close, 
               na.rm = TRUE)
 ```
 
@@ -22,7 +21,7 @@ my_sol <- min(df_prices$price.close,
 Question
 ========
 
-Using the `BatchGetSymbols` package, download daily data of the Facebook stock (FB) from _Yahoo Finance_ for the period between 2019 and 2020. What is the lowest **unadjusted closing price (column `price.close`)** in the analyzed period? 
+Using the `yfR` package, download daily data of the Facebook stock (FB) from _Yahoo Finance_ for the period between 2019 and 2023. What is the lowest **unadjusted closing price (column `price.close`)** in the analyzed period? 
 
 
 Solution
