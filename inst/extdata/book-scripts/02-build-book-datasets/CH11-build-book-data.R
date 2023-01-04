@@ -21,5 +21,5 @@ link <- "https://raw.githubusercontent.com/FederatedAI/FATE/master/examples/data
 
 df_credit <- readr::read_csv(link)
 
-f_out <- build_path('CH11_UCI_Credit_Card.csv')
+f_out <- build_path('CH11_UCI-Credit-Card.csv')
 readr::write_csv(df_credit, f_out)

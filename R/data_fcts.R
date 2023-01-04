@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' data_list()
-data_list <- function(be_silent = TRUE) {
+data_list <- function(be_silent = FALSE) {
 
   path_data <- get_pkg_dir('data')
 

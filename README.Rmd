@@ -23,7 +23,7 @@ Includes several functions related to the third edition of book "Analyzing Finan
 ## Installation
 
 ```
-# only in github (will not pass cran checks)
+# only in github
 devtools::install_github('msperlin/afedR3')
 ```
 
@@ -32,14 +32,14 @@ devtools::install_github('msperlin/afedR3')
 ### Listing available datasets
 
 ```{r}
-afedR3::list_available_data()
+afedR3::data_list()
 ```
 
 ### Fetching data from book repository
 
 ```{r}
-file_name <- 'SP500.csv'
-path_to_file <- afedR3::get_data_file(file_name)
+file_name <- 'CH04_SP500.csv'
+path_to_file <- afedR3::data_path(file_name)
 
 df <- readr::read_csv(path_to_file)
 dplyr::glimpse(df)
@@ -50,6 +50,6 @@ dplyr::glimpse(df)
 ```{r}
 temp_path <- fs::path_temp('afedR3')
 
-flag <- afedR3::copy_book_files(path_to_copy = temp_path)
+flag <- afedR3::bookfiles_get(path_to_copy = temp_path)
 ```
 

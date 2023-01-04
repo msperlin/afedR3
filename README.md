@@ -11,7 +11,7 @@ following formats:
 
 ## Installation
 
-    # only in github (will not pass cran checks)
+    # only in github
     devtools::install_github('msperlin/afedR3')
 
 ## Example of usage
@@ -19,66 +19,50 @@ following formats:
 ### Listing available datasets
 
 ``` r
-afedR3::list_available_data()
-#>  [1] "Brazil_footbal_games.csv"                        
-#>  [2] "example_tsv.csv"                                 
-#>  [3] "FileWithLatinChar_Latin1.txt"                    
-#>  [4] "FileWithLatinChar_UTF-8.txt"                     
-#>  [5] "Financial Sample.xlsx"                           
-#>  [6] "FTSE.csv"                                        
-#>  [7] "funky_csv_file.csv"                              
-#>  [8] "funky_csv2.csv"                                  
-#>  [9] "grunfeld.csv"                                    
-#> [10] "Ibov_long_2010-01-01_2018-09-12.rds"             
-#> [11] "IbovComp_long_2015-01-01_2019-11-10.rds"         
-#> [12] "pride_and_prejudice.txt"                         
-#> [13] "SP500_comp_long_2014-10-17_2019-10-16.rds"       
-#> [14] "SP500_comp_YEARLY_long_2014-10-03_2019-10-02.rds"
-#> [15] "SP500_Excel.xlsx"                                
-#> [16] "SP500_long_yearly_2010-01-01_2019-11-04.rds"     
-#> [17] "SP500_Stocks_long_by_year.rds"                   
-#> [18] "SP500_xlsx.xlsx"                                 
-#> [19] "SP500-Stocks_long.csv"                           
-#> [20] "SP500-Stocks_wide.csv"                           
-#> [21] "SP500-Stocks-WithRet.rds"                        
-#> [22] "SP500.csv"                                       
-#> [23] "SQLite_db.SQLITE"                                
-#> [24] "TDData_ALL_2019-10-02.rds"                       
-#> [25] "temp_file.xlsx"                                  
-#> [26] "temp_fst.fst"                                    
-#> [27] "temp_rds.rds"                                    
-#> [28] "temp_writexl.xlsx"                               
-#> [29] "temp_xlsx.xlsx"                                  
-#> [30] "temp.csv"                                        
-#> [31] "temp.fst"                                        
-#> [32] "temp.RData"                                      
-#> [33] "temp.rds"                                        
-#> [34] "temp.txt"                                        
-#> [35] "temp.xlsx"                                       
-#> [36] "top25babynames-by-sex-2005-2017.csv"             
-#> [37] "UCI_Credit_Card.csv"
+afedR3::data_list()
+#> 
+#> ── Available data files at ']8;;file:///tmp/RtmpHCZ8Fm/temp_libpathd188171040c7/afedR3/extdata/data/tmp/RtmpHCZ8Fm/temp_libpathd188171040c7/afedR3/extd]8;;
+#> ℹ CH04_another-funky-csv-file.csv
+#> ℹ CH04_example-fst.fst
+#> ℹ CH04_example-sqlite.SQLite
+#> ℹ CH04_example-tsv.tsv
+#> ℹ CH04_funky-csv-file.csv
+#> ℹ CH04_ibovespa-Excel.xlsx
+#> ℹ CH04_ibovespa.csv
+#> ℹ CH04_price-and-prejudice.txt
+#> ℹ CH04_SP500-Excel.xlsx
+#> ℹ CH04_SP500.csv
+#> ℹ CH07_FileWithLatinChar_Latin1.txt
+#> ℹ CH07_FileWithLatinChar_UTF-8.txt
+#> ℹ CH08_some-stocks-SP500.csv
+#> ℹ CH08_wide-example-stocks.csv
+#> ℹ CH11_grunfeld.csv
+#> ℹ CH11_UCI-Credit-Card.csv
+#> 
+#> ✔ You can read files using afedR3::data_import(name_of_file)
+#> ✔ Example: df <- afedR3::data_import('CH11_grunfeld.csv')
 ```
 
 ### Fetching data from book repository
 
 ``` r
-file_name <- 'SP500.csv'
-path_to_file <- afedR3::get_data_file(file_name)
+file_name <- 'CH04_SP500.csv'
+path_to_file <- afedR3::data_path(file_name)
 
 df <- readr::read_csv(path_to_file)
-#> Rows: 2718 Columns: 2
+#> Rows: 3269 Columns: 2
 #> ── Column specification ────────────────────────────────────────────────────────
 #> Delimiter: ","
-#> dbl  (1): price.close
-#> date (1): ref.date
+#> dbl  (1): price_close
+#> date (1): ref_date
 #> 
 #> ℹ Use `spec()` to retrieve the full column specification for this data.
 #> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 dplyr::glimpse(df)
-#> Rows: 2,718
+#> Rows: 3,269
 #> Columns: 2
-#> $ ref.date    <date> 2010-01-04, 2010-01-05, 2010-01-06, 2010-01-07, 2010-01-0…
-#> $ price.close <dbl> 70045, 70240, 70729, 70451, 70263, 70433, 70076, 70385, 69…
+#> $ ref_date    <date> 2010-01-04, 2010-01-05, 2010-01-06, 2010-01-07, 2010-01-0…
+#> $ price_close <dbl> 1132.99, 1136.52, 1137.14, 1141.69, 1144.98, 1146.98, 1136…
 ```
 
 ### Copying all book files to local directory
@@ -86,13 +70,10 @@ dplyr::glimpse(df)
 ``` r
 temp_path <- fs::path_temp('afedR3')
 
-flag <- afedR3::copy_book_files(path_to_copy = temp_path)
-#> Warning in afedR3::copy_book_files(path_to_copy = temp_path):
-#> Path /tmp/Rtmpy4Nqo2/afedR3 was not found. Creating folder..
-#> Copying data files files to /tmp/Rtmpy4Nqo2/afedR3/afedR files/data
-#>  37 files copied
-#> Copying end-of-chapter (eoc) exercises with solutions to /tmp/Rtmpy4Nqo2/afedR3/afedR files/eoc-exercises/
-#>  99 files copied
-#> Copying R code to /tmp/Rtmpy4Nqo2/afedR3/afedR files/R-code
-#>  15 files copied
+flag <- afedR3::bookfiles_get(path_to_copy = temp_path)
+#> ℹ Path ']8;;file:///tmp/RtmpQqkDVC/afedR3/tmp/RtmpQqkDVC/afedR3]8;;' does not exists and is created.
+#> ℹ Copying data files files to ']8;;file:///tmp/RtmpQqkDVC/afedR3/data/tmp/RtmpQqkDVC/afedR3/data]8;;'
+#> ✔    16 files copied
+#> ℹ Copying book script files to ']8;;file:///tmp/RtmpQqkDVC/afedR3/book-scripts/tmp/RtmpQqkDVC/afedR3/book-scripts]8;;'
+#> ℹ Files available at ]8;;file:///tmp/RtmpQqkDVC/afedR3/tmp/RtmpQqkDVC/afedR3]8;;
 ```
