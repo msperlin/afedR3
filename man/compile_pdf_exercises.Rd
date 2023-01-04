@@ -11,6 +11,8 @@ compile_pdf_exercises(
   exercise_name = "Sample Exercise",
   chapters_to_include = 1:3,
   dir_out = "afedR-pdf-exercises",
+  links_in_html = dplyr::tibble(text = "Analyzing Financial and Economic Data with R",
+    url = "https://www.msperlin.com/blog/publication/2020_book-afedr-en/"),
   solution = FALSE
 )
 }
@@ -26,6 +28,10 @@ compile_pdf_exercises(
 \item{chapters_to_include}{Chapter to include in exercise (1-13)}
 
 \item{dir_out}{Folder to copy exercise html files}
+
+\item{links_in_html}{A dataframe with links to be added in the html page. This can
+be anything that helps the students. The dataframe must have two columns: "text" with the text to
+appear in the html and "url" with the actual link (see default options for details).}
 
 \item{solution}{Wheter to include solution or not..}
 }

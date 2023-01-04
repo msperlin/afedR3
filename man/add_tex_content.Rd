@@ -34,8 +34,6 @@ add_tex_content(
 \item{exercise_name}{Name of exercise}
 
 \item{exam_links}{Links to add}
-
-\item{dir_out}{Folder out}
 }
 \value{
 TRUE, if sucessfull

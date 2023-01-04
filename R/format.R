@@ -1,6 +1,7 @@
 #' Format cash
 #'
 #' @param x a number
+#' @param type_cash type of cash ("USD" or "BRL")
 #'
 #' @return formatted string
 #' @export

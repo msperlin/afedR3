@@ -2,6 +2,8 @@
 #'
 #' @param folder_in folder with exercise files to render
 #' @param type_doc type of document (from knitr::pandoc_to())
+#' @param print_eoce flag (TRUE/FALSE) for printing text at end of execution
+#'  (use FALSE if testing package)
 #'
 #' @return nothing
 #' @export

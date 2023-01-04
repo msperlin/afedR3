@@ -4,6 +4,9 @@
 #' @param students_ids Ids of students (a vector)
 #' @param class_name The name of the class
 #' @param exercise_name The name of the exercises
+#' @param links_in_html A dataframe with links to be added in the html page. This can
+#'     be anything that helps the students. The dataframe must have two columns: "text" with the text to
+#'     appear in the html and "url" with the actual link (see default options for details).
 #' @param chapters_to_include Chapter to include in exercise (1-13)
 #' @param dir_out Folder to copy exercise html files
 #' @param solution Wheter to include solution or not..
@@ -21,6 +24,8 @@ compile_pdf_exercises <- function(students_names,
                                 exercise_name = 'Sample Exercise',
                                 chapters_to_include = 1:3,
                                 dir_out = 'afedR-pdf-exercises',
+                                links_in_html = dplyr::tibble(text = 'Analyzing Financial and Economic Data with R',
+                                                              url = 'https://www.msperlin.com/blog/publication/2020_book-afedr-en/'),
                                 solution = FALSE) {
 
   # set template
@@ -59,6 +64,8 @@ compile_pdf_exercises <- function(students_names,
 
     # make sure duplicate labels are possible
     options(knitr.duplicate.label = "allow")
+
+    n_ver <- 1
 
     # replacing latex template
     add_tex_content(f_in = template_tex_file,
@@ -123,7 +130,6 @@ compile_pdf_exercises <- function(students_names,
 #'
 #' @param f_in File with tex code
 #' @param f_out name (path) of output file
-#' @param dir_out Folder out
 #' @param student_name Name of student
 #' @param student_version Version of student
 #' @param student_id id of student

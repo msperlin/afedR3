@@ -8,6 +8,8 @@ format_cash(x, type_cash = "USD")
 }
 \arguments{
 \item{x}{a number}
+
+\item{type_cash}{type of cash ("USD" or "BRL")}
 }
 \value{
 formatted string

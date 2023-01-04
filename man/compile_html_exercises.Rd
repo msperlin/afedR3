@@ -32,6 +32,8 @@ appear in the html and "url" with the actual link (see default options for detai
 
 \item{chapters_to_include}{Chapter to include in exercise (1-13)}
 
+\item{solution}{flag (TRUE/FALSE) for whether printing solutions or not}
+
 \item{dir_out}{Folder to copy exercise html files}
 
 \item{language}{Selection of language ("en" only so far)}
@@ -40,7 +42,7 @@ appear in the html and "url" with the actual link (see default options for detai
 TRUE, if sucessfull
 }
 \description{
-This function uses the \link{exam} package to create exercises in the html or pdf format with
+This function uses the \link{exams} package to create exercises in the html or pdf format with
 random selections. This means that each student will receive a different version of the same
 exercise. All exercise files are taken from book "Analysing Financial and Economic Data with R".
 }

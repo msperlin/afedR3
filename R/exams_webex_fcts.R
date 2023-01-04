@@ -183,6 +183,8 @@ build_answers_text <- function(text1,
                                text2,
                                text3) {
 
+  answer <- NULL
+
   text1_chosen <- text1[sample(1:nrow(text1), 1), ]
   text2_chosen <- text2[sample(1:nrow(text2), 1), ]
   text3_chosen <- text3[sample(1:nrow(text3), 1), ]

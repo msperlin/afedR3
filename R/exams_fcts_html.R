@@ -1,6 +1,6 @@
 #' Compiles exercises from book afedR
 #'
-#' This function uses the \link{exam} package to create exercises in the html or pdf format with
+#' This function uses the \link{exams} package to create exercises in the html or pdf format with
 #' random selections. This means that each student will receive a different version of the same
 #' exercise. All exercise files are taken from book "Analysing Financial and Economic Data with R".
 #'
@@ -12,6 +12,7 @@
 #'     be anything that helps the students. The dataframe must have two columns: "text" with the text to
 #'     appear in the html and "url" with the actual link (see default options for details).
 #' @param chapters_to_include Chapter to include in exercise (1-13)
+#' @param solution flag (TRUE/FALSE) for whether printing solutions or not
 #' @param dir_out Folder to copy exercise html files
 #' @param language Selection of language ("en" only so far)
 #'
@@ -61,7 +62,6 @@ compile_html_exercises <- function(students_names,
   exercises_to_compile <- available_exercises[idx]
 
   n_ver <- length(students_names)
-  lan <<- language # global for language
 
   # set template
   template_html_file <- system.file('extdata/exams_files/templates/Exams_Template.html',

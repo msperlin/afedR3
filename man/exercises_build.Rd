@@ -10,6 +10,9 @@ exercises_build(folder_in, type_doc, print_eoce = TRUE)
 \item{folder_in}{folder with exercise files to render}
 
 \item{type_doc}{type of document (from knitr::pandoc_to())}
+
+\item{print_eoce}{flag (TRUE/FALSE) for printing text at end of execution
+(use FALSE if testing package)}
 }
 \value{
 nothing
