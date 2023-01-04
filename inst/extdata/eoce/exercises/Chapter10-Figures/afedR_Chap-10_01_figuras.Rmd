@@ -1,6 +1,6 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
 library(BatchGetSymbols)
-library(tidyverse)
+library(ggplot2)
 
 tickers <- 'TLSA'
 

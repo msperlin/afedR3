@@ -23,7 +23,8 @@ Solution
 ================
 
 ```{r, eval=FALSE}
-library(tidyverse)
+library(dplyr)
+library(readr)
 
 do_tests <- function(my_N) {
   

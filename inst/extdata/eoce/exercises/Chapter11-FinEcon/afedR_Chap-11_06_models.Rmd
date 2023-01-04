@@ -1,6 +1,6 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
 library(BatchGetSymbols)
-library(tidyverse)
+library(dplyr)
 
 tickers <- GetSP500Stocks()$Tickers
 first_date <- Sys.Date() - 3*365
@@ -13,8 +13,6 @@ df_stocks <- BatchGetSymbols(tickers = tickers,
 df_sp500 <- BatchGetSymbols(tickers =  '^GSPC', 
                             first.date = first_date, 
                             last.date = last_date)[[2]]
-
-library(dplyr)
 
 my_tab <- df_stocks %>%
   group_by(ticker) %>%

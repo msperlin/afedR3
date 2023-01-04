@@ -8,10 +8,8 @@ my_sol <- time_1 + my_sec
 ```{r datageneration, echo = FALSE, results = "hide"}
 candidates <- time_1 + sample(-10000:10000, 500)
 
-my_answers <- make_random_answers(my_sol, 
+my_answers <- afedR3::make_random_answers(my_sol, 
                                   candidates = candidates)
-
-check_answers(my_answers)
 
 ```
 

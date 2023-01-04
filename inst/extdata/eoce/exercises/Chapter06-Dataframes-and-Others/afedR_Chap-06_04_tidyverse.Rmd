@@ -1,6 +1,4 @@
 ```{r datageneration, echo = FALSE, results = "hide"}
-set.seed(1)
-
 my_df <- tibble::tibble(x = -100:100, 
                         y = x + 5)
 
@@ -18,9 +16,9 @@ Solution
 ================
 
 ```{r, eval=FALSE}
-library(tidyverse)
-
-set.seed(1)
+library(dplyr)
+library(readr)
+library(stringr)
 
 my_df <- tibble(x = -100:100,
                 y = x + 5) %>%

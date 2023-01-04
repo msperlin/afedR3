@@ -24,7 +24,8 @@ say_my_name <- function(name_in) {
   return(invisible(TRUE))
 }
 
-library(tidyverse)
+library(dplyr)
+library(readr)
 library(purrr)
 
 # get CURRENT url from https://data.chhs.ca.gov/dataset/most-popular-baby-names-2005-current

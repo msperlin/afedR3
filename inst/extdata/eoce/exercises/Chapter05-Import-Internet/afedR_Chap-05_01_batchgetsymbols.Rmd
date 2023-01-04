@@ -13,9 +13,9 @@ my_sol <- min(df_prices$price_close,
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
-#my_answers <- afedR::make_random_answers(my_sol)
+#my_answers <- afedR3::make_random_answers(my_sol)
 
-#afedR::check_answers(my_answers)
+#afedR3::check_answers(my_answers)
 ```
 
 Question

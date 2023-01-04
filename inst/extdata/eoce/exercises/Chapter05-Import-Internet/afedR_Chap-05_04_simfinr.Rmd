@@ -1,6 +1,7 @@
 ```{r solution, echo = FALSE, results = "hide"}
 library(simfinR)
-library(tidyverse)
+library(dplyr)
+library(readr)
 
 # set api key - make sure you got your own at https://simfin.com/data/access/api
 my_api_key <- read_lines('~/GDrive/98-pass-and-bash/.api_key_simfin.txt')

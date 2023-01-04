@@ -31,5 +31,6 @@ Imports:
   glue,
   tidyr
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0), yfR,
+    GetQuandlData, simfinR
 Config/testthat/edition: 3

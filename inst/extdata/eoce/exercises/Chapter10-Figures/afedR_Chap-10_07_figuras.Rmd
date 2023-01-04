@@ -1,6 +1,9 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
 library(BatchGetSymbols)
-library(tidyverse)
+library(dplyr)
+library(readr)
+library(stringr)
+library(ggplot2)
 
 df_sp500 <- GetSP500Stocks()
 

@@ -4,7 +4,6 @@ read_cranlogs_files <- function(date_in) {
   # Reads log files from http://cran-logs.rstudio.com/
   #
   # ARGS: date_in - date of log data
-  require(tidyverse)
   require(lubridate)
   
   url_dl <- paste0('http://cran-logs.rstudio.com/', year(date_in), '/',
@@ -12,7 +11,7 @@ read_cranlogs_files <- function(date_in) {
   
   cat('\nReading ', url_dl)
   
-  df <- read_csv(url_dl, col_types = cols())
+  df <- readr::read_csv(url_dl, col_types = readr::cols())
   
   return(df)
 }
@@ -20,6 +19,7 @@ read_cranlogs_files <- function(date_in) {
 # find out the availabe dates in url
 library(rvest)
 library(lubridate)
+library(stringr)
 
 available_links <- read_html('http://cran-logs.rstudio.com/') %>%
   html_nodes(css = 'a') %>%
@@ -41,7 +41,7 @@ my_dates <- seq(first_date,
                 by = '1 day')
 
 library(purrr) 
-library(tidyverse)
+library(dplyr)
 
 l_out <- map(my_dates, 
              safely(read_cranlogs_files, 

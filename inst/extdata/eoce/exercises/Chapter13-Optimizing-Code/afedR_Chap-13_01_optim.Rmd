@@ -1,5 +1,4 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(tidyverse)
 library(BatchGetSymbols)
 library(fGarch)
 library(profvis)
@@ -46,7 +45,6 @@ Question
 Consider the following code:
 
 ```{r, eval=FALSE}
-library(tidyverse)
 library(forecast)
 library(BatchGetSymbols)
 

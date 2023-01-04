@@ -1,5 +1,6 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE}
-library(tidyverse)
+library(dplyr)
+library(readr)
 
 my_N <- 100
 
@@ -13,7 +14,7 @@ df <- bind_rows(tibble(ticker = rep('STOCK 1', my_N),
 print(df)
 
 # convert from long to wide
-df_wide <- spread(data = df, 
+df_wide <- tidyr::spread(data = df, 
                   key = 'ticker',
                   value = 'price')
 
@@ -32,7 +33,7 @@ Question
 Change the format of the previous `dataframe`, from long to wide or vice versa.
 
 ```{r, eval=FALSE}
-library(tidyverse)
+library(dplyr)
 
 my_N <- 100
 

@@ -1,6 +1,5 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
 library(BatchGetSymbols)
-library(tidyverse)
 
 tickers <- GetSP500Stocks()$Tickers
 first_date <- Sys.Date() - 3*365
@@ -10,7 +9,6 @@ df_stocks <- BatchGetSymbols(tickers = tickers,
                              first.date = first_date, 
                              last.date = last_date)[[2]]
 
-library(tidyverse)
 library(fMarkovSwitching)
 
 set.seed(10)

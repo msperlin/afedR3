@@ -13,7 +13,7 @@ print(M_identity)
 Question
 ========
 
-Wihtin an R session, create an identity matrix (value 1 in the diagonal, zero in any other) of size 3X3. Tip: use the `diag` function to define the diagonal of the matrix.
+Within an R session, create an identity matrix (value 1 in the diagonal, zero in any other) of size 3X3. Tip: use the `diag` function to define the diagonal of the matrix.
 
 
 Solution

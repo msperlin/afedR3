@@ -9,7 +9,12 @@
 #' @examples
 #' exercises_build(exercises_dir_get(exercises_dir_list()[1]),
 #'  type_doc = "html")
-exercises_build <- function(folder_in, type_doc) {
+exercises_build <- function(folder_in, type_doc, print_eoce = TRUE) {
+
+  available_docs <- c("latex", 'epub3', 'html')
+  if (!type_doc %in% available_docs) {
+    cli::cli_abort('wrong type_doc (available = {available_docs})')
+  }
 
   link_eoc_exercises <- links_get()$book_blog
 
@@ -25,7 +30,8 @@ exercises_build <- function(folder_in, type_doc) {
   for (i_ex in files_in) {
     l_out <- exercise_to_text(i_ex,
                               my_counter = my_counter,
-                              type_doc)
+                              type_doc,
+                              print_eoce = print_eoce)
 
     my_counter <- my_counter + 1
   }
@@ -36,7 +42,8 @@ exercises_build <- function(folder_in, type_doc) {
 #' exercises -> html
 #'
 #' @noRd
-exercise_to_text <- function(f_in, my_counter, type_doc) {
+exercise_to_text <- function(f_in, my_counter,
+                             type_doc, print_eoce) {
 
   # for naming exercises
   my_dir <- file.path(tempdir(),
@@ -77,7 +84,7 @@ exercise_to_text <- function(f_in, my_counter, type_doc) {
 
   }
 
-  cat(my_str)
+  if (print_eoce) cat(my_str)
 
   return(invisible(TRUE))
 

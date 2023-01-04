@@ -10,7 +10,7 @@ my_sol <- table(my_group)[1]
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
-my_answers <- make_random_answers(my_sol)
+my_answers <- afedR3::make_random_answers(my_sol)
 
 #check_answers(my_answers)
 ```

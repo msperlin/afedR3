@@ -1,24 +1,20 @@
 ```{r solution, echo = FALSE, results = "hide"}
-library(BatchGetSymbols)
-library(tidyverse)
+first_date <- '2015-01-01'
+last_date <- '2023-01-01'
 
-first_date <- '2010-01-01'
-last_date <- '2020-12-31'
+df_prices <- yfR::yf_get('GOOG', 
+                         first_date,
+                         last_date)
 
-df_prices <- BatchGetSymbols(tickers = 'GOOG', 
-                             first.date = first_date,
-                             last.date = last_date)[[2]]
-
-value_purchase <- 1000
+value_purchase <- sample(seq(1000,10000, by = 50), 1)
 
 # solution
-my_sol <- last(df_prices$price.adjusted)/first(df_prices$price.adjusted)*value_purchase
+my_sol <- last(df_prices$price_adjusted)/first(df_prices$price_adjusted)*value_purchase
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
-my_answers <- afedR::format_cash(
-  as.numeric(afedR::make_random_answers(my_sol)), 
-  type_cash = 'USD')
+my_answers <- afedR3::format_cash(
+  as.numeric(afedR3::make_random_answers(my_sol)))
 
 #check_answers(my_answers)
 ```
@@ -27,7 +23,7 @@ my_answers <- afedR::format_cash(
 Question
 ========
 
-Use the `BatchGetSymbols` package to download Google (GOOG) stock data, from` r first_date` to `r last_date`. If the investor had bought 1000 USD in Google shares on the first day of the data and kept the investment until today, what would be the value of his portfolio?
+Use the `r afedR3::format_pkg_citation("yfR")` package to download Google (GOOG) stock data, from` r first_date` to `r last_date`. If the investor had bought 1000 USD in Google shares on the first day of the data and kept the investment until today, what would be the value of his portfolio?
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")
@@ -44,6 +40,6 @@ Meta-information
 ================
 extype: schoice
 exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
-exname: "batchgetsymbols"
+exname: "yfR"
 exshuffle: TRUE
 

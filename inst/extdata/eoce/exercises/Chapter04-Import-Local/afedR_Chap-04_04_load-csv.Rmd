@@ -18,7 +18,7 @@ my_answer <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Use `afedR::get_data_file` function to access the `SP500.csv` file in the book's data repository. Import the contents of the file into R with the function `readr::read_csv`. How many lines are there in the resulting `dataframe`?
+Use `afedR3::data_path` function to access the `r basename(my_f)` file in the book's data repository. Import the contents of the file into R with the function `readr::read_csv`. How many lines are there in the resulting `dataframe`?
 
 
 Solution

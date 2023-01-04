@@ -12,7 +12,7 @@ Question
 Consider the `dataframe` created with the following code:
 
 ```{r, eval=FALSE}
-library(tidyverse)
+library(dplyr)
 
 my_N <- 100
 

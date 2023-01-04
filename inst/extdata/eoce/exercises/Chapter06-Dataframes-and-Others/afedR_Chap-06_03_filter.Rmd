@@ -3,10 +3,8 @@ my_df <- dplyr::tibble(x = -100:100,
                        y = x + 5)
 
 # solution
-library(tidyverse)
-
 my_df2 <- my_df %>%
-  filter(y > 0)
+  dplyr::filter(y > 0)
 
 # solution
 my_sol <- nrow(my_df2)

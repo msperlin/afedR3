@@ -14,8 +14,6 @@ my_beta <- 0.5
 # build y
 y <- my_alpha + my_beta*x + rnorm(n_row)
 
-library(tidyverse)
-
 my_lm <- lm(formula = y ~ x, data = tibble(x, y))
 
 summary(my_lm)

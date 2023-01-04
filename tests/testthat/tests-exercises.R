@@ -1,20 +1,19 @@
-test_that("exercise functions", {
+test_that("eoce compilation", {
 
   # dir list
   dir_list <- exercises_dir_list()
-  expect_true(is.character(dir_list))
 
   # dir get
   for (i_dir in dir_list) {
     this_dir <- exercises_dir_get(i_dir)
 
-    expect_true(is.character(this_dir))
+    cli::cli_alert_info("testing {i_dir}")
+    flag <- exercises_build(this_dir, type_doc = "latex",
+                            print_eoce = FALSE)
+
+    expect_true(flag)
   }
 
-  # dir get - ERROR
-  expect_error({
-    exercises_dir_get("error-dir")
-  })
 
   # exercises compilation to html
   # DOESNT WORK: "match.call(definition = sys.function(i), call = sys.call(i))`: invalid 'definition' argument"

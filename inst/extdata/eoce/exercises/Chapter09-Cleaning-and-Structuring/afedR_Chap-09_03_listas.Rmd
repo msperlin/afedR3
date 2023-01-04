@@ -1,5 +1,6 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE}
-library(tidyverse)
+library(dplyr)
+library(readr)
 
 my_l <- list(df1 = tibble(x = 1:100, 
                           y = runif(100)),
@@ -34,7 +35,7 @@ Question
 Consider the following list:
 
 ```{r}
-library(tidyverse)
+library(dplyr)
 
 my_l <- list(df1 = tibble(x = 1:100, y = runif(100)),
              df2 = tibble(x = 1:100, y = runif(100), v = runif(100)),

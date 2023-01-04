@@ -1,6 +1,5 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
 library(BatchGetSymbols)
-library(tidyverse)
 
 tickers <- GetSP500Stocks()$Tickers
 first_date <- Sys.Date() - 3*365

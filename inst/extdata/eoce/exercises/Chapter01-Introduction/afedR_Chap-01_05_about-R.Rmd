@@ -14,7 +14,7 @@ text3 <- tibble(text = c ('R has compatibility with different programming langua
                           'R is not compatible with different programming languages;'),
                 sol = c (TRUE, FALSE))
 
-l <- afedR::build_answers_text(text1,
+l <- afedR3::build_answers_text(text1,
                                text2,
                                text3)
 

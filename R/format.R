@@ -83,8 +83,8 @@ format_number <- function(x, digits = 4) {
   x <- format(x,
               digits = digits,
               nsmall = 2,
-              decimal.mark = ",",
-              big.mark = "."
+              decimal.mark = ".",
+              big.mark = ","
   )
 
   return(x)

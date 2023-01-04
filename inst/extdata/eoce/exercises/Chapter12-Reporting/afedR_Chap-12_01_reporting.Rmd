@@ -1,9 +1,9 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(tidyverse)
+library(dplyr)
 
-my_f <-  afedR::get_data_file('grunfeld.csv')
+my_f <-  afedR3::data_path('CH11_grunfeld.csv')
 
-df_grunfeld <- read_csv(my_f, col_types = cols())
+df_grunfeld <- readr::read_csv(my_f, col_types = readr::cols())
 
 my_tab <- tibble(nrows = nrow(df_grunfeld),
                  ncol = ncol(df_grunfeld),

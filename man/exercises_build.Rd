@@ -4,7 +4,7 @@
 \alias{exercises_build}
 \title{Builds eoc exercises}
 \usage{
-exercises_build(folder_in, type_doc)
+exercises_build(folder_in, type_doc, print_eoce = TRUE)
 }
 \arguments{
 \item{folder_in}{folder with exercise files to render}
