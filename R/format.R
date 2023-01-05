@@ -150,14 +150,14 @@ format_pkg_citation <- function(pkg,
 
   if ((pkg %in% available_cit) && (!force_ref)) {
 
-    pkg_citation <- stringr::str_glue("**{pkg}** {str_index}")
+    pkg_citation <- stringr::str_glue("{format_pkg_text(pkg)} {str_index}")
 
   } else {
 
     this_cit_file <- fs::path(folder_db_citation, pkg)
     fs::file_touch(this_cit_file)
 
-    pkg_citation <- stringr::str_glue("**{pkg}** {str_index} [@R-{pkg}]")
+    pkg_citation <- stringr::str_glue("{format_pkg_text(pkg)} {str_index} [@R-{pkg}]")
   }
 
   return(pkg_citation)
@@ -226,17 +226,17 @@ format_fct_ref <- function(pkg,
     fs::file_touch(f_fct)
 
     str_pkg <- stringr::str_glue(
-      "**{pkg}::{this_fct}()**"
+      "**{pkg}**::{format_fct_text(this_fct)}"
     )
   } else {
 
     if (force_pkg) {
       str_pkg <- stringr::str_glue(
-        "**{pkg}::{this_fct}()**"
+        "**{pkg}**::{format_fct_text(this_fct)}"
       )
     } else {
       str_pkg <- stringr::str_glue(
-        "**{this_fct}()**"
+        "{format_fct_text(this_fct)}"
       )
     }
 
@@ -280,4 +280,31 @@ format_vec_as_text <- function(str_in) {
 
   return(str_out)
 
+}
+
+
+#' Format a package string in text
+#'
+#' @param pkg the pkg to format
+#'
+#' @return a char
+#' @export
+#'
+#' @examples
+#' format_pkg_text("dplyr")
+format_pkg_text <- function(pkg) {
+  glue::glue("**{pkg}**")
+}
+
+#' Format a function string in text
+#'
+#' @param fct the fct name to format
+#'
+#' @return a char
+#' @export
+#'
+#' @examples
+#' format_fct_text('mean')
+format_fct_text <- function(fct) {
+  glue::glue("**{fct}()**")
 }

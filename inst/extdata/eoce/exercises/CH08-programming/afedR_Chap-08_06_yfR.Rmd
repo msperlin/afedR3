@@ -1,23 +1,23 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
+library(dplyr)
 
 indexes <- c('^BVSP', '^GSPC', '^FTSE', '^N225')
 
-df_indices <- BatchGetSymbols(tickers = indexes, 
-                              first.date = '2010-01-01',
-                              last.date = Sys.Date())[[2]]
+df_indices <- yfR::yf_get(indexes, 
+                          '2010-01-01',
+                          Sys.Date())
 
 tab <- tibble()
 for (index in indexes) {
   
-  temp_df <- df_indices %>%
+  temp_df <- df_indices |>
     filter(ticker == index)
   
-  avg_ret <- mean(temp_df$ret.adjusted.prices, 
+  avg_ret <- mean(temp_df$ret_adjusted_prices, 
                   na.rm = TRUE)
-  max_ret <- max(temp_df$ret.adjusted.prices, 
+  max_ret <- max(temp_df$ret_adjusted_prices, 
                  na.rm = TRUE)
-  min_ret <- min(temp_df$ret.adjusted.prices, 
+  min_ret <- min(temp_df$ret_adjusted_prices, 
                  na.rm = TRUE)
   
   # save result
@@ -40,7 +40,7 @@ my_answers <- rep(NA, 5)
 Question
 ========
 
-Use the `BatchGetSymbols` package to download data from the SP500 (`'^GSPC'`), Ibovespa (`'^BVSP'`), FTSE (`'^ FSTE'`) and Nikkei 225 (`'^N225'` index)) from '2010-01-01'` to the current date. With the imported data, use a loop to calculate the average, maximum and minimum return for each index during the analyzed period. Save all results in a single table and show it in the _prompt_ of R.
+Use the `yfR` package to download data from the SP500 (`'^GSPC'`), Ibovespa (`'^BVSP'`), FTSE (`'^ FSTE'`) and Nikkei 225 (`'^N225'` index)) from '2010-01-01'` to the current date. With the imported data, use a loop to calculate the average, maximum and minimum return for each index during the analyzed period. Save all results in a single table and show it in the _prompt_ of R.
 
 
 Solution

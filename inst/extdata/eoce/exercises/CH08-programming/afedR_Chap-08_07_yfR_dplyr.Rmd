@@ -1,17 +1,17 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
+library(dplyr)
 
 indexes <- c('^BVSP', '^GSPC', '^FTSE', '^N225')
 
-df_indices <- BatchGetSymbols(tickers = indexes, 
-                              first.date = '2010-01-01',
-                              last.date = Sys.Date())[[2]]
+df_indices <- yfR::yf_get(indexes, 
+                          '2010-01-01',
+                          Sys.Date())
 
 tab_tidy <- df_indices %>%
   group_by(ticker) %>%
-  summarise(mean_ret = mean(ret.adjusted.prices, na.rm = TRUE),
-            max_ret = max(ret.adjusted.prices, na.rm = TRUE),
-            min_ret = min(ret.adjusted.prices, na.rm = TRUE))
+  summarise(mean_ret = mean(ret_adjusted_prices, na.rm = TRUE),
+            max_ret = max(ret_adjusted_prices, na.rm = TRUE),
+            min_ret = min(ret_adjusted_prices, na.rm = TRUE))
 
 print(tab_tidy)
 ```
@@ -28,7 +28,6 @@ Question
 Redo previous exercise using functions `group_by` and `summarise`, both from package `dplyr`.
 
 
-
 Solution
 ================
 
@@ -40,6 +39,6 @@ Meta-information
 ================
 extype: string
 exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
-exname: "batchgetsymbols dplyr"
+exname: "yfR dplyr"
 exshuffle: TRUE
 

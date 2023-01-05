@@ -1,4 +1,4 @@
-```{r solution, echo = FALSE, results = "hide", message=FALSE, cache=TRUE}
+```{r solution, echo = FALSE, results = "hide", message=FALSE}
 # set function that will download the files
 read_cranlogs_files <- function(date_in) {
   # Reads log files from http://cran-logs.rstudio.com/
@@ -20,6 +20,7 @@ read_cranlogs_files <- function(date_in) {
 library(rvest)
 library(lubridate)
 library(stringr)
+library(dplyr)
 
 available_links <- read_html('http://cran-logs.rstudio.com/') %>%
   html_nodes(css = 'a') %>%
@@ -33,8 +34,8 @@ r_links <- available_links[idx]
 dates_dls <- ymd(basename(r_links))
 max_date <- max(dates_dls)
 
-first_date <- as.Date('2020-01-01')
-last_date <- as.Date('2020-01-15')
+first_date <- as.Date('2022-01-01')
+last_date <- as.Date('2022-01-05')
 
 my_dates <- seq(first_date, 
                 last_date, 
@@ -56,7 +57,7 @@ my_sol <- names(sort(table(df_cranlogs$country),
 
 ```{r datageneration, echo = FALSE, results = "hide"}
 candidates <- unique(na.omit(df_cranlogs$country))
-my_answers <- make_random_answers(my_sol, candidates)
+my_answers <- afedR3::make_random_answers(my_sol, candidates)
 ```
 
 Question
@@ -81,6 +82,6 @@ Meta-information
 ================
 extype: schoice
 exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
-exname: "batchgetsymbols dplyr"
+exname: "yfR dplyr"
 exshuffle: TRUE
 

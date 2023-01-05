@@ -4,7 +4,7 @@
 \alias{data_list}
 \title{List available datasets with description}
 \usage{
-data_list(be_silent = TRUE)
+data_list(be_silent = FALSE)
 }
 \arguments{
 \item{be_silent}{Be silent?}

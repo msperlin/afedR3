@@ -21,7 +21,7 @@ following formats:
 ``` r
 afedR3::data_list()
 #> 
-#> ── Available data files at ']8;;file:///tmp/RtmpHCZ8Fm/temp_libpathd188171040c7/afedR3/extdata/data/tmp/RtmpHCZ8Fm/temp_libpathd188171040c7/afedR3/extd]8;;
+#> ── Available data files at ']8;;file:///tmp/RtmpHaVfRd/temp_libpath15e277402813/afedR3/extdata/data/tmp/RtmpHaVfRd/temp_libpath15e277402813/afedR3/extd]8;;
 #> ℹ CH04_another-funky-csv-file.csv
 #> ℹ CH04_example-fst.fst
 #> ℹ CH04_example-sqlite.SQLite
@@ -40,7 +40,7 @@ afedR3::data_list()
 #> ℹ CH11_UCI-Credit-Card.csv
 #> 
 #> ✔ You can read files using afedR3::data_import(name_of_file)
-#> ✔ Example: df <- afedR3::data_import('CH11_grunfeld.csv')
+#> ✔ Example: df <- afedR3::data_import('CH08_wide-example-stocks.csv')
 ```
 
 ### Fetching data from book repository
@@ -71,9 +71,9 @@ dplyr::glimpse(df)
 temp_path <- fs::path_temp('afedR3')
 
 flag <- afedR3::bookfiles_get(path_to_copy = temp_path)
-#> ℹ Path ']8;;file:///tmp/RtmpQqkDVC/afedR3/tmp/RtmpQqkDVC/afedR3]8;;' does not exists and is created.
-#> ℹ Copying data files files to ']8;;file:///tmp/RtmpQqkDVC/afedR3/data/tmp/RtmpQqkDVC/afedR3/data]8;;'
+#> ℹ Path ']8;;file:///tmp/RtmpJllCj3/afedR3/tmp/RtmpJllCj3/afedR3]8;;' does not exists and is created.
+#> ℹ Copying data files files to ']8;;file:///tmp/RtmpJllCj3/afedR3/data/tmp/RtmpJllCj3/afedR3/data]8;;'
 #> ✔    16 files copied
-#> ℹ Copying book script files to ']8;;file:///tmp/RtmpQqkDVC/afedR3/book-scripts/tmp/RtmpQqkDVC/afedR3/book-scripts]8;;'
-#> ℹ Files available at ]8;;file:///tmp/RtmpQqkDVC/afedR3/tmp/RtmpQqkDVC/afedR3]8;;
+#> ℹ Copying book script files to ']8;;file:///tmp/RtmpJllCj3/afedR3/book-scripts/tmp/RtmpJllCj3/afedR3/book-scripts]8;;'
+#> ℹ Files available at ]8;;file:///tmp/RtmpJllCj3/afedR3/tmp/RtmpJllCj3/afedR3]8;;
 ```
