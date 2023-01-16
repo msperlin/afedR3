@@ -1,13 +1,13 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE}
-library(BatchGetSymbols)
 library(purrr)
 
 ticker <- '^GSPC'
 first_date <- '1950-01-01'
 last_date <- '2021-01-01'
-df_SP500 <- BatchGetSymbols(tickers = '^GSPC', 
-                            first.date = first_date,
-                            last.date = last_date)[[2]]
+
+df_sp500 <- yfR::yf_get('^GSPC', 
+                            first_date,
+                            last_date)
 
 replace_outliers <- function(col_in, my_prob = 0.05) {
   # Replaces outliers from a vector
@@ -32,19 +32,19 @@ replace_outliers <- function(col_in, my_prob = 0.05) {
 }
 
 # remove outlivers from vectors
-l_out <- map(df_SP500, replace_outliers, my_prob = 0.025)
+l_out <- map(df_sp500, replace_outliers, my_prob = 0.025)
 
-df_SP500_nooutlier <- na.omit(as_tibble(l_out))
+df_sp500_nooutlier <- na.omit(as_tibble(l_out))
 
-nrow_1 <- nrow(df_SP500)
-nrow_2 <- nrow(df_SP500_nooutlier)
+nrow_1 <- nrow(df_sp500)
+nrow_2 <- nrow(df_sp500_nooutlier)
 
 my_sol <- nrow_1 - nrow_2
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
 # none
-my_answers <- make_random_answers(my_sol)
+my_answers <- afedR3::make_random_answers(my_sol)
 ```
 
 Question

@@ -1,18 +1,16 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE}
-library(BatchGetSymbols)
-
 ticker <- '^FTSE'
 
 first_date <- '2010-01-01'
 last_date <- '2021-01-01'
 
-df_FTSE_daily <- BatchGetSymbols(tickers = ticker, 
-                            first.date = first_date,
-                            last.date = last_date)[[2]]
+df_FTSE_daily <- yfR::yf_get(ticker,
+                            first_date,
+                            last_date)
 
 # change from daily to annual
 df_FTSE_yearly <- df_FTSE_daily %>%
-  mutate(ref_year = lubridate::year(ref.date)) %>%
+  mutate(ref_year = lubridate::year(ref_date)) %>%
   group_by(ref_year) %>%
   summarise_all(.funs = last)
 
@@ -27,7 +25,7 @@ my_answers <- rep(NA, 5)
 Question
 ========
 
-Use the `BatchGetSymbols::BatchGetSymbols` function to import  the prices of the FTSE index (`'^ FTSE'`) from `r first_date` to `r last_date`. Then, reconstruct the data at the annual frequency, defining each year's value as the last observation of the period. Tip: see the `dplyr::summary_all` function for a functional way to aggregate all the columns of a `dataframe`.
+Use the `yfR::yf_get` function to import  the prices of the FTSE index (`'^ FTSE'`) from `r first_date` to `r last_date`. Then, reconstruct the data at the annual frequency, defining each year's value as the last observation of the period. Tip: see the `dplyr::summary_all` function for a functional way to aggregate all the columns of a `dataframe`.
 
 
 Solution
