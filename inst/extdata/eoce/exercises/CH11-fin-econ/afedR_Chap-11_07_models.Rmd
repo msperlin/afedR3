@@ -1,25 +1,27 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
-
-tickers <- GetSP500Stocks()$Tickers
+tickers <- yfR::yf_index_composition("DOW")$ticker
 first_date <- Sys.Date() - 3*365
 last_date  <- Sys.Date()
 
-df_stocks <- BatchGetSymbols(tickers = tickers, 
-                             first.date = first_date, 
-                             last.date = last_date)[[2]]
+df_stocks <- yfR::yf_get(tickers, 
+                         first_date, 
+                         last_date)
+
+df_sp500 <- yfR::yf_get('^GSPC', 
+                        first_date, 
+                        last_date)
 
 library(dplyr)
 library(fGarch)
 
-tab_models <- df_stocks %>%
-  na.omit() %>%
-  group_by(ticker) %>%
+tab_models <- df_stocks |>
+  na.omit() |>
+  group_by(ticker) |>
   do(my_garch = garchFit(formula = ~ arma(1,0) + garch(1,1), 
-                         data = .$ret.adjusted.prices, 
+                         data = .$ret_adjusted_prices, 
                          trace = FALSE) ) 
 
-tab_models <- tab_models %>%
+tab_models <- tab_models |>
   mutate(forecast_mean = predict(my_garch, 
                                  n.ahead = 1)$meanForecast[1],
          forecast_sd = predict(my_garch, 
@@ -35,7 +37,7 @@ print(tab_models$ticker[idx])
 
 ```{r datageneration, echo = FALSE, results = "hide"}
 # none
-#my_answers <- make_random_answers(my_sol)
+#my_answers <- afedR3::make_random_answers(my_sol)
 my_answers <- rep(NA, 5)
 ```
 

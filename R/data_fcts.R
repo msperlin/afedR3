@@ -24,8 +24,8 @@ data_list <- function(be_silent = FALSE) {
     }
 
     message('')
-    cli::cli_alert_success("\n\nYou can read files using afedR3::data_import(name_of_file)")
-    cli::cli_alert_success("Example: df <- afedR3::data_import('{sample(my_files, 1)}')")
+    cli::cli_alert_success("You can get the local path of file using afedR3::data_path(name_of_file)")
+    cli::cli_alert_success("Example: local_path <- afedR3::data_path('{sample(my_files, 1)}')")
 
   }
 
@@ -58,7 +58,11 @@ data_path <- function(name_dataset) {
   )
 
   if (path_data == '') {
-    stop('Cant find name ', name_dataset, ' in list of available tables.')
+    cli::cli_abort('Cant find name {name_dataset} in list of available tables. Did you check the name with afedR3::data_list()?"')
+  }
+
+  if (!fs::file_exists(path_data)) {
+    cli::cli_abort("Cant find file {name_dataset}.. Did you type it correctly? Try using afedR3::data_list().")
   }
 
   return(path_data)

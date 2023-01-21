@@ -1,23 +1,22 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
 library(dplyr)
 
-tickers <- GetSP500Stocks()$Tickers
+tickers <- yfR::yf_index_composition("DOW")$ticker
 first_date <- Sys.Date() - 3*365
 last_date  <- Sys.Date()
 
-df_stocks <- BatchGetSymbols(tickers = tickers, 
-                             first.date = first_date, 
-                             last.date = last_date)[[2]]
+df_stocks <- yfR::yf_get(tickers, 
+                         first_date, 
+                         last_date)
 
-df_sp500 <- BatchGetSymbols(tickers =  '^GSPC', 
-                            first.date = first_date, 
-                            last.date = last_date)[[2]]
+df_sp500 <- yfR::yf_get('^GSPC', 
+                        first_date, 
+                        last_date)
 
-my_tab <- df_stocks %>%
-  group_by(ticker) %>%
-  do(my_arima = arima(x = .$ret.adjusted.prices, 
-                      order = c(1,0,0))) %>%
+my_tab <- df_stocks |>
+  group_by(ticker) |>
+  do(my_arima = arima(x = .$ret_adjusted_prices, 
+                      order = c(1,0,0))) |>
   mutate(arima_forecast = predict(my_arima, n.ahead = 1 )$pred[1])
 
 glimpse(my_tab)
@@ -29,7 +28,7 @@ print(my_tab$ticker[idx])
 
 ```{r datageneration, echo = FALSE, results = "hide"}
 # none
-#my_answers <- make_random_answers(my_sol)
+#my_answers <- afedR3::make_random_answers(my_sol)
 my_answers <- rep(NA, 5)
 ```
 

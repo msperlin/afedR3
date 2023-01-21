@@ -1,13 +1,13 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
+library(dplyr)
 
-tickers <- GetSP500Stocks()$Tickers
+tickers <- yfR::yf_index_composition("DOW")$ticker
 first_date <- Sys.Date() - 3*365
 last_date  <- Sys.Date()
 
-df_stocks <- BatchGetSymbols(tickers = tickers, 
-                             first.date = first_date, 
-                             last.date = last_date)[[2]]
+df_stocks <- yfR::yf_get(tickers, 
+                         first_date, 
+                         last_date)
 
 library(fMarkovSwitching)
 
@@ -15,53 +15,31 @@ set.seed(10)
 
 random_stocks <- sample(unique(df_stocks$ticker), 4)
 
-temp_df <- df_stocks %>%
-  dplyr::filter(ticker %in% random_stocks)
+temp_df <- df_stocks |>
+  filter(ticker %in% random_stocks)
 
-  tab_switching_model <- temp_df %>%
-  na.omit() %>%
-  group_by(ticker) %>%
-  do(ms_model = MS_Regress_Fit(dep = .$ret.adjusted.prices,
-                               indep = rep(1, nrow(.)),
-                               S = c(1), 
-                               k = 2))	# fitting the model)
+tab_switching_model <- temp_df |>
+  na.omit() |>
+  group_by(ticker) |>
+  do(ms_model = MS_Regress_Fit(
+        dep = .$ret_adjusted_prices,
+        indep = rep(1, nrow(.)),
+        S = c(1), 
+        k = 2))
 
-
-# using temp folder for solution
-
-plot_and_save <- function(model_in, ticker_in) {
-  
-  if (!dir.exists('figs')) dir.create('figs')
-  
-  out_file <- file.path('figs', paste0('plot_', ticker_in, '.jpg'))
-  
-  jpeg(out_file)
-  plot(model_in)
-  dev.off()
-  
-  return(TRUE)
-  
-  
-}
-
-library(purrr)
-
-l_out <- pmap(.l = list(model_in = tab_switching_model$ms_model,
-                        ticker_in = tab_switching_model$ticker), 
-              .f =  plot_and_save)
+glimpse(tab_switching_model[[2]])
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
 # none
-#my_answers <- make_random_answers(my_sol)
+#my_answers <- afedR3::make_random_answers(my_sol)
 my_answers <- rep(NA, 5)
 ```
 
 Question
 ========
 
-For the same SP500 database, select 4 stocks at random and estimate a Markov regime switching model with a configuration equivalent to that presented in section \@ref(estimating-markov). Use the `plot` function to display the graph of the smoothed probabilities and save each figure in a folder called `'fig'`.
-
+For the same SP500 database, select 4 stocks at random and estimate a Markov regime switching model with a constant and two states. Compare the estimated parameters across the models. Are they similar? 
 
 
 Solution
@@ -75,6 +53,6 @@ Meta-information
 ================
 extype: string
 exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
-exname: "function 01"
+exname: "ms models"
 exshuffle: TRUE
 

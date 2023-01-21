@@ -22,6 +22,11 @@ df_yf <- yfR::yf_get(selected,
                      first_date,
                      last_date)
 
+df_yf <- df_yf |>
+  select(ref_date, ticker,
+         price_adjusted, ret_adjusted_prices,
+         cumret_adjusted_prices)
+
 readr::write_csv(df_yf, my_f)
 
 # wide df ----

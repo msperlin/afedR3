@@ -14,7 +14,7 @@ my_beta <- 0.5
 # build y
 y <- my_alpha + my_beta*x + rnorm(n_row)
 
-my_lm <- lm(formula = y ~ x, data = tibble(x, y))
+my_lm <- lm(formula = y ~ x, data = tibble::tibble(x, y))
 
 summary(my_lm)
 
@@ -40,7 +40,7 @@ my_sol <- my_waldtest$F[2]
 
 ```{r datageneration, echo = FALSE, results = "hide"}
 # none
-my_answers <- make_random_answers(my_sol)
+my_answers <- afedR3::make_random_answers(my_sol)
 ```
 
 Question
