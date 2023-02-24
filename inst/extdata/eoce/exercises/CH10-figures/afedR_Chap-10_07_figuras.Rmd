@@ -22,8 +22,8 @@ df_prices <- BatchGetSymbols(tickers = my_tickers,
 tab <- df_prices %>%
   na.omit() %>%
   group_by(ticker) %>%
-  summarise(mean = mean(ret.adjusted.prices),
-            sd = sd(ret.adjusted.prices))
+  summarise(mean = mean(ret_adjusted_prices),
+            sd = sd(ret_adjusted_prices))
 
 p <- ggplot(tab, aes(x = sd, y = mean)) + 
   geom_point() + 

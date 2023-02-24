@@ -1,16 +1,16 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
+library(ggplot2)
 
 tickers <- c('AAPL', 
              'MSFT',
              'AMZN',
              'GOOG') 
 
-df_stocks <- BatchGetSymbols(tickers = tickers, 
-                             first.date = Sys.Date() - 500,
-                             last.date = Sys.Date())[[2]]
+df_stocks <- yfR::yf_get(tickers, 
+                         Sys.Date() - 500,
+                         Sys.Date())
 
-p <- ggplot(df_stocks, aes(x = ret.adjusted.prices)) + 
+p <- ggplot(df_stocks, aes(x = ret_adjusted_prices)) + 
   geom_histogram() + 
   facet_wrap(~ticker)
 

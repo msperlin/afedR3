@@ -1,5 +1,4 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
 library(fGarch)
 library(profvis)
 
@@ -13,10 +12,10 @@ Rprof(filename = profiling_file)
 # run code
 profiling <- profvis(expr = {
   ticker <- '^GSPC'
-  df_prices <- BatchGetSymbols(tickers = ticker, 
-                               first.date = '2000-01-01', do.cache = FALSE)[[2]]
+  df_prices <- yfR::yf_get(ticker, 
+                           '2000-01-01', do_cache = FALSE)
   
-  my_garch <- garchFit(formula = ret.adjusted.prices ~ arma(1,1) + garch(1,1), 
+  my_garch <- garchFit(formula = ret_adjusted_prices ~ arma(1,1) + garch(1,1), 
                        data =  na.omit(df_prices) )
 })
 
@@ -46,13 +45,12 @@ Consider the following code:
 
 ```{r, eval=FALSE}
 library(forecast)
-library(BatchGetSymbols)
 
 ticker <- '^GSPC'
-df_prices <- BatchGetSymbols(tickers = ticker, 
-                             first.date = '2010-01-01')[[2]]
+df_prices <- yfR::yf_get(ticker, 
+                         '2010-01-01')
 
-my_arima <- auto.arima(df_prices$ret.adjusted.prices)
+my_arima <- auto.arima(df_prices$ret_adjusted_prices)
 summary(my_arima)
 ```
 

@@ -1,19 +1,18 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
 library(dplyr)
 
-tickers <- sample(GetSP500Stocks()$Tickers, 4)
+tickers <- sample(yfR::yf_index_composition("SP500")$ticker, 4)
 first_date <- Sys.Date() - 3*365
 last_date  <- Sys.Date()
 
-df_stocks <- BatchGetSymbols(tickers = tickers, 
-                             first.date = first_date, 
-                             last.date = last_date)[[2]]
+df_stocks <- yfR::yf_get(tickers, 
+                         first_date, 
+                         last_date)
 
 my_tab <- df_stocks %>%
   na.omit() %>%
   group_by(ticker) %>%
-  do(my_arima = arima(x = .$ret.adjusted.prices, 
+  do(my_arima = arima(x = .$ret_adjusted_prices, 
                       order = c(1, 0, 1))) 
 
 glimpse(my_tab)
