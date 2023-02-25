@@ -15,8 +15,12 @@ Solution
 ```{r, eval=FALSE}
 r_pkg_folder <- Sys.getenv ('R_LIBS_USER')
 
-pkg_files <- list.files(r_pkg_folder, recursive = TRUE)
-my_dirs <- list.dirs(r_pkg_folder, recursive = FALSE)
+pkg_files <- fs::dir_ls(r_pkg_folder, recurse = TRUE)
+my_dirs <- list.dirs(
+    r_pkg_folder, 
+    recurse = FALSE,
+    type = 'directory'
+    )
 
 n_files <- length(pkg_files)
 n_dirs <- length(my_dirs)

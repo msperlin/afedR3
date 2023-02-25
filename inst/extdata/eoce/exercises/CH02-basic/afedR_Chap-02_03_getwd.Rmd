@@ -1,11 +1,7 @@
 ```{r datageneration, echo = FALSE, results = "hide"}
-my_answers <- c('S+', 
-                'C++',
-                'Python',
-                'Matlab',
-                'Javascript')
 
-#check_answers(my_answers)
+# no data generation..
+
 ```
 
 Question

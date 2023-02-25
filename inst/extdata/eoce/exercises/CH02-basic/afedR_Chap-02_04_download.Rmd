@@ -1,25 +1,25 @@
 ```{r datageneration, echo = FALSE, results = "hide"}
-book_site_zip <- "https://www.msperlin.com/blog/static/afedr-files/afedR-code-and-data.zip"
+book_site_zip <- afedR3::links_get()$book_blog_zip
 ```
 
 Question
 ========
 
-Use R to download the compressed zip file with the book material, available at this [link](`r book_site_zip`)^[`r book_site_zip`]. Save it as a file in the temporary session folder (see function `tempfile`).
+Use R to download the compressed zip file with the book material, available at this [link](`r book_site_zip`)^[`r book_site_zip`]. Save it as a file in the temporary session folder (see function `fs::file_temp()`).
 
 
 Solution
 ================
 
 ```{r, eval=FALSE}
-local_file <- tempfile(fileext = '.zip')
-my_url <- 'https://www.msperlin.com/blog/files/pafdr%20files/Code_Data_pafdR.zip'
+local_file <- fs::file_temp(ext = '.zip')
+my_url <- afedR3::links_get()$book_blog_zip
 
 download.file(url = my_url, 
               destfile = local_file)
 
 # check if exists
-file.exists(local_file)
+fs::file_exists(local_file)
 ```
 
 

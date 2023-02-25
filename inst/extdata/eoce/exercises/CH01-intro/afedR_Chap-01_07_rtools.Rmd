@@ -13,7 +13,6 @@ Question
 
 On the [CRAN site](https://cloud.r-project.org/bin/windows/) you can also install the Rtools application. What is it for?
 
-
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")
 ```
@@ -21,9 +20,9 @@ exams::answerlist(my_answers, markup = "markdown")
 Solution
 ================
 
-Rtools is an extension particular to R on Windows. It is used to compile packages from source code and is a requirement for those who develop packages. For the average user, however, it is also recommended to install Rtools as some packages require such compilation.
+Rtools is an extension particular to R on Windows. It is used to compile packages from source code and is a requirement for those who develop packages. For the average user, however, it is also recommended to install Rtools as some packages requires compilation.
 
-For Linux/Unix or MacOS users, Rtools is not necessary as, generally, compilers are already available by the operating system itself.
+For Linux/Unix or MacOS users, Rtools is not necessary as, generally, compilers are already available within the operating system itself.
 
 
 Meta-information

@@ -6,7 +6,7 @@
 Question
 ========
 
-Once you have R and RStudio installed, head over to the [CRAN package website](https://cloud.r-project.org/web/packages/available_packages_by_date.html)^[https: //cloud.r- project.org/web/packages/available_packages_by_date.html] and look for technologies you use in your work. For example, if you use [Google Sheets](https://www.google.com/sheets/about/)^[https://www.google.com/sheets/about/] ostensibly in your work, you will soon discover that there is a package in CRAN that interacts with spreadsheets in the cloud.
+Once you have R and RStudio installed, head over to the [CRAN package website](https://cloud.r-project.org/web/packages/available_packages_by_date.html)^[https: //cloud.r- project.org/web/packages/available_packages_by_date.html] and look for technologies you use in your work. For example, if you use [Google Sheets](https://www.google.com/sheets/about/)^[https://www.google.com/sheets/about/] ostensibly in your work, you will soon discover that there is a package in CRAN called `googlesheets4` that interacts with spreadsheets in the cloud.
 
 
 Solution

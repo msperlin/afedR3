@@ -13,7 +13,6 @@ Question
 
 What was the reason the programming language was named R?
 
-
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")
 ```

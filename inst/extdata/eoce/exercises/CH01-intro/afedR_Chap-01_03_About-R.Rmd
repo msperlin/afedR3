@@ -21,7 +21,7 @@ exams::answerlist(my_answers, markup = "markdown")
 Solution
 ================
 
-Undoubtedly, the main differential of the R language is the ease with which data can be analyzed on the platform. Although other languages also allow data analysis, it is in R where this process is supported by a wide range of specialized packages.
+Undoubtedly, the main differential of the R language is the ease with which data can be analyzed on the platform. Although other languages also allow data analysis, it is in R where this process is supported by a wide range of specialized and efficient packages.
 
 Meta-information
 ================

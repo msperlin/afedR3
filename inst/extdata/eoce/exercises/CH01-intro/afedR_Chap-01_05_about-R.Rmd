@@ -6,7 +6,7 @@ text1 <- tibble(text = c ('R is a mature and stable programming platform;',
                           'R was developed in 2018 and is an innovative and unstable project;'),
                 sol = c (TRUE, FALSE))
 
-text2 <- tibble(text = c ('RStudio is an modern interface to R, increasing productivity;',
+text2 <- tibble(text = c ('RStudio is a modern interface to R, increasing productivity;',
                           'RStudio is an alternative programming language to R;'),
                 sol = c (TRUE, FALSE))
 

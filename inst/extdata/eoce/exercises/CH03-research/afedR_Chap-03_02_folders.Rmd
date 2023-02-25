@@ -11,7 +11,7 @@ afedR3::check_answers(my_answers)
 Question
 ========
 
-Based on the study proposed earlier, create a directory structure on your computer to accommodate the study. Create mock files for each subdirectory (see directory structure at section \@ref(directories)). Be aware you can create mock files and direction all in R (see functions `cat` and `dir.create`).
+Based on the study proposed earlier, create a directory structure on your computer to accommodate the study. Create mock files for each subdirectory (see directory structure at section \@ref(directories)). Be aware you can create mock files and direction all in R (see functions `cat` and `fs::dir_create`).
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")

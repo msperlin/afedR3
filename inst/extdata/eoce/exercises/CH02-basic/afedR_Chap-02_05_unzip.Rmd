@@ -5,7 +5,7 @@
 Question
 ========
 
-Use the `unzip` function to unzip the downloaded file from previous question to a directory called` 'afedR-files'` inside the "Desktop" folder. How many files are available in the resulting folder? Tip: use the `recursive = TRUE` argument with `list.files` to also search for all available subdirectories.
+Use the `unzip` function to unzip the downloaded file from previous question to a directory called `'afedR-files'` inside the "Desktop" folder. How many files are available in the resulting folder? Tip: use the `recursive = TRUE` argument with `fs::dir_ls` to also search for all available subdirectories.
 
 
 Solution
@@ -15,9 +15,8 @@ Solution
 my_folder <- '~/Desktop/adfeR-Files' # this is probably C:/Users/USERNAME/Desktop for Windows
 unzip(local_file, exdir = my_folder) # local_file comes from previous exercise
 
-files <- list.files(my_folder, 
-                    full.names = TRUE, 
-                    recursive = TRUE)
+files <- fs::dir_ls(my_folder, 
+                    recurse = TRUE)
 
 n_files <- length(files)
 

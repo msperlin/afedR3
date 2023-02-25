@@ -11,7 +11,7 @@ afedR3::check_answers(my_answers)
 Question
 ========
 
-Imagine a survey involving analyzing your household budget over time. Data are available in electronic spreadsheets separated by month, for 10 years. The objective of the research is to understand if it is possible to purchase a real state property in the next five years. Within this setup, detail in text the elements in each stage of the study, from importing the data to the construction of the report.
+Imagine a survey regarding your household budget over time. Financial data is available in electronic spreadsheets separated by month, for 10 years. The objective of the research is to understand if it is possible to purchase a real state property in the next five years. Within this setup, detail in text the elements in each stage of the study, from importing the data to the construction of the report.
 
 
 Solution

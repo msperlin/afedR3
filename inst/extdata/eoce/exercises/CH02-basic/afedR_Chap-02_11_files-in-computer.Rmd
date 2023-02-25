@@ -17,7 +17,7 @@ doc_folder <- '~' # 'C:/Users/USERNAME/Documents' in Windows
                   # '/home/USERNAME/  in Linux
 
 fct_count_files <- function(dir_in) {
-  n_files <- list.files(dir_in, recursive = FALSE)
+  n_files <- fs::dir_ls(dir_in, recurse = FALSE)
   return(length(n_files))
 }
 
