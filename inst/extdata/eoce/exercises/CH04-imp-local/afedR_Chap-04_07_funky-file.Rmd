@@ -19,7 +19,7 @@ afedR3::check_answers(my_answer)
 Question
 ========
 
-In the book package there is a data file called `r basename(my_f)`. This has a particularly bizarre format for the data. Open it in a text editor and try to understand how the columns are separated and what is symbol for decimals. After that, study the inputs of function `read.table` and import the table into your R  session. If we add the number of rows to the number of columns in the imported table, what is the result?
+In the book package you'll find data file called `r basename(my_f)`, with a particularly bizarre format. Open it in a text editor and try to understand how the columns are separated and what is symbol for decimals. After that, study the inputs of function `utils::read.table` and import the table into your R  session. If we add the number of rows to the number of columns in the imported table, what is the result?
 
 
 Solution

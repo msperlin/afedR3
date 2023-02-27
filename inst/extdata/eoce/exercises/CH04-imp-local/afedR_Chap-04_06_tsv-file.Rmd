@@ -17,7 +17,7 @@ my_answer <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Use function `afedR3::get_data_file` function to access the `r basename(my_f)` file in the book's data repository. Note that the columns of the data are separated by the tab symbol (`'\t'`), and not the usual comma. After reading the `readr::read_delim` manual, import the information from this file to your R session. How many rows does the resulting `dataframe` contain?
+Use function `afedR3::data_path` function to access the `r basename(my_f)` file in the book's data repository. Note that the columns of the data are separated by the tab symbol (`'\t'`), and not the usual comma. After reading the `readr::read_delim` manual, import the information from this file to your R session. How many rows does the resulting `dataframe` contain?
 
 
 Solution

@@ -13,7 +13,7 @@ my_sol <- ncol(df_grunfeld)
 Question
 ========
 
-Within link [https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv/](https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv) you will find a _.csv_ file for the _Grunfeld_ data. This is a particularly famous table due to its use as reference data in econometric models. Using `readr::read_csv` function, read this file using the direct link as input `read_csv`. How many columns do you find in the resulting `dataframe`?
+At link [https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv/](https://eeecon.uibk.ac.at/~zeileis/grunfeld/Grunfeld.csv) you'll find a _.csv_ file for the _Grunfeld_ data. This is a particularly famous table due to its use as reference data in econometric models. Using `readr::read_csv` function, read this file using the direct link as input `read_csv`. How many columns do you find in the resulting `dataframe`?
 
 
 Solution
