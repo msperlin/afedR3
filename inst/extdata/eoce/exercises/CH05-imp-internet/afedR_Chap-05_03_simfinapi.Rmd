@@ -1,5 +1,5 @@
 ```{r solution, echo = FALSE, results = "hide"}
-library(simfinR)
+library(simfinapi)
 library(dplyr)
 library(readr)
 
@@ -7,10 +7,19 @@ library(readr)
 my_api_key <- read_lines('~/GDrive/98-pass-and-bash/.api_key_simfin.txt')
 # get info
 
-df_info_companies <- simfinR_get_available_companies(my_api_key)
+cache_dir <- fs::path_temp("cache-simfin")
+fs::dir_create(cache_dir)
+
+simfinapi::sfa_set_api_key(my_api_key)
+simfinapi::sfa_set_cache_dir(cache_dir)
+
+# get info
+df_info_companies <- simfinapi::sfa_get_entities()
 
 # check it
-n_companies <- n_distinct(df_info_companies$name)
+glimpse(df_info_companies)
+# check it
+n_companies <- n_distinct(df_info_companies$ticker)
 
 my_sol <- n_companies
 ```
@@ -22,7 +31,7 @@ my_answers <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Use function `simfinR::simfinR_get_available_companies` to import data about all available companies in [Simfin](https://simfin.com). How many companies do you find? Be aware that the number of rows is not necessarily equal to the number of companies. You need to check the number of unique values in column `name` (see function `dplyr::n_distinct`. 
+Use function `simfinapi::sfa_get_entities()` to import data about all available companies in [Simfin](https://simfin.com). How many companies do you find?  (see function `dplyr::n_distinct()`). 
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")

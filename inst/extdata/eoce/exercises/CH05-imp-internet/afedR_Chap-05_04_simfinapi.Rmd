@@ -1,0 +1,63 @@
+```{r solution, echo = FALSE, results = "hide"}
+library(simfinapi)
+library(dplyr)
+library(readr)
+
+# set api key - make sure you got your own at https://simfin.com/data/access/api
+my_api_key <- read_lines('~/GDrive/98-pass-and-bash/.api_key_simfin.txt')
+# get info
+
+cache_dir <- fs::path_temp("cache-simfin")
+fs::dir_create(cache_dir)
+
+simfinapi::sfa_set_api_key(my_api_key)
+simfinapi::sfa_set_cache_dir(cache_dir)
+
+ticker <- 'TSLA'
+type_statement <- 'pl' # profit/loss
+period <- 'fy' # final year
+year <- 2022
+
+PL <- sfa_get_statement(
+  ticker = ticker, 
+  statement = type_statement,
+  period = period,
+  fyear = year)
+
+glimpse(PL)
+
+desired_acc <- 'net_income'
+
+latest_acc_value <- PL$net_income[1]
+
+my_sol <- latest_acc_value 
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+my_answers <- afedR3::make_random_answers(my_sol, 
+                                         is_cash = TRUE)
+```
+
+Question
+========
+
+With package `simfinapi`, download the PL (profit/loss) statement for FY (final year) data for TESLA (ticker = `r ticker`) for year `r year`.  What is the latest Profit/Loss of the company for that particular year?
+
+```{r questionlist, echo = FALSE, results = "asis"}
+exams::answerlist(my_answers, markup = "markdown")
+```
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+
+Meta-information
+================
+extype: schoice
+exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
+exname: "simfinr 02"
+exshuffle: TRUE
+
