@@ -3,7 +3,7 @@ my_df <- dplyr::tibble(x = -100:100,
                        y = x + 5)
 
 # solution
-my_df2 <- my_df %>%
+my_df2 <- my_df |>
   dplyr::filter(y > 0)
 
 # solution

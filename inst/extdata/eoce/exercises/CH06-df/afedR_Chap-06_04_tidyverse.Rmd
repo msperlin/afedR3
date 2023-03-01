@@ -21,24 +21,24 @@ library(readr)
 library(stringr)
 
 my_df <- tibble(x = -100:100,
-                y = x + 5) %>%
+                y = x + 5) |>
   mutate(cumsum_x = cumsum(x))
 
 # solution 01
-sol_01 <- my_df %>%
+sol_01 <- my_df |>
   filter(x > 10, 
-         x < 25) %>%
+         x < 25) |>
   nrow()
 
 # solution 02
-sol_02 <- my_df %>%
-  mutate(cumsum_x = cumsum(x)) %>%
-  filter(cumsum_x > -3500) %>%
+sol_02 <- my_df |>
+  mutate(cumsum_x = cumsum(x)) |>
+  filter(cumsum_x > -3500) |>
   nrow()
 
 # solution 03
-sol_03 <- my_df %>%
-  filter(y > 0) %>%
+sol_03 <- my_df |>
+  filter(y > 0) |>
   nrow()
 
 message(str_glue(

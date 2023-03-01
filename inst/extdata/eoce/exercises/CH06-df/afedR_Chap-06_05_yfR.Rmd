@@ -1,4 +1,6 @@
 ```{r solution, echo = FALSE, results = "hide"}
+library(dplyr)
+
 first_date <- '2015-01-01'
 last_date <- '2023-01-01'
 
@@ -6,7 +8,7 @@ df_prices <- yfR::yf_get('GOOG',
                          first_date,
                          last_date)
 
-value_purchase <- sample(seq(1000,10000, by = 50), 1)
+value_purchase <- sample(seq(1000, 10000, by = 50), 1)
 
 # solution
 my_sol <- last(df_prices$price_adjusted)/first(df_prices$price_adjusted)*value_purchase
@@ -23,7 +25,7 @@ my_answers <- afedR3::format_cash(
 Question
 ========
 
-Use the `r afedR3::format_pkg_citation("yfR")` package to download Google (GOOG) stock data, from` r first_date` to `r last_date`. If the investor had bought 1000 USD in Google shares on the first day of the data and kept the investment until today, what would be the value of his portfolio?
+Use the `yfR` package to download Google (GOOG) stock data, from `r first_date` to `r last_date`. If the investor had bought 1000 USD in Google shares on the first day of the data and kept the investment until today, what would be the value of his portfolio?
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")

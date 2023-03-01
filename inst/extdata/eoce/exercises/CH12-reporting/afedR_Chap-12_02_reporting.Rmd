@@ -9,9 +9,9 @@ df_stocks <- yfR::yf_get(tickers,
                          first_date, 
                          last_date)
 
-my_tab <- df_stocks %>%
-  na.omit() %>%
-  group_by(ticker) %>%
+my_tab <- df_stocks |>
+  na.omit() |>
+  group_by(ticker) |>
   do(my_arima = arima(x = .$ret_adjusted_prices, 
                       order = c(1, 0, 1))) 
 

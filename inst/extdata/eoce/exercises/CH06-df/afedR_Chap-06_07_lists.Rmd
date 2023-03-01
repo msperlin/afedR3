@@ -19,7 +19,7 @@ tab
 Question
 ========
 
-Create a list type object with three `dataframes` in its contents,`df1`, `df2` and `df3`. The content and size of the dataframes is your personal choice. Now, use the `sapply` function and a custom function to find out the number of rows and columns in each `dataframe`.
+Create a list type object with three `dataframes` in its contents,`df1`, `df2` and `df3`. The content and size of the `dataframes` is your personal choice. Now, use the `sapply` function and a custom function to find out the number of rows and columns in each `dataframe`.
 
 
 

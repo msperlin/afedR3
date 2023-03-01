@@ -7,8 +7,8 @@ df_indices <- yfR::yf_get(indexes,
                           '2010-01-01',
                           Sys.Date())
 
-tab_tidy <- df_indices %>%
-  group_by(ticker) %>%
+tab_tidy <- df_indices |>
+  group_by(ticker) |>
   summarise(mean_ret = mean(ret_adjusted_prices, na.rm = TRUE),
             max_ret = max(ret_adjusted_prices, na.rm = TRUE),
             min_ret = min(ret_adjusted_prices, na.rm = TRUE))

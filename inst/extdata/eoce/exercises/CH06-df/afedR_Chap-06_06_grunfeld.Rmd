@@ -20,7 +20,7 @@ my_answers <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Use functions `afedR3::data_path` and `readr::read_csv` to import data from the `r basename(my_file)` file. Now, use function `dplyr::glimpse` functions to find out the number of lines in the imported data. What is the number of rows in the imported table?
+Use functions `afedR3::data_path` and `readr::read_csv` to import data from the `r basename(my_file)` file. Now, use function `dplyr::glimpse` to find out the number of lines in the imported data. What is the number of rows in the imported table?
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")

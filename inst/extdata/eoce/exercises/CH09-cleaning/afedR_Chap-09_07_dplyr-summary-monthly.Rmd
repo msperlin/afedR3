@@ -8,9 +8,9 @@ df_FTSE_daily <- yfR::yf_get(ticker,
                             last_date)
 
 # change from daily to monthly
-df_FTSE_monthly <- df_FTSE_daily %>%
-  mutate(ref_month = format(ref_date, '%Y-%m-01')) %>%
-  group_by(ref_month) %>%
+df_FTSE_monthly <- df_FTSE_daily |>
+  mutate(ref_month = format(ref_date, '%Y-%m-01')) |>
+  group_by(ref_month) |>
   summarise_all(last)
 
 print(df_FTSE_monthly)

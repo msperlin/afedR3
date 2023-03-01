@@ -9,9 +9,9 @@ df_FTSE_daily <- yfR::yf_get(ticker,
                             last_date)
 
 # change from daily to annual
-df_FTSE_yearly <- df_FTSE_daily %>%
-  mutate(ref_year = lubridate::year(ref_date)) %>%
-  group_by(ref_year) %>%
+df_FTSE_yearly <- df_FTSE_daily |>
+  mutate(ref_year = lubridate::year(ref_date)) |>
+  group_by(ref_year) |>
   summarise_all(.funs = last)
 
 print(df_FTSE_yearly)

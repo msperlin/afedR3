@@ -1,5 +1,5 @@
 ```{r solution, echo = FALSE, results = "hide"}
-my_size <- 3
+my_size <- 5
 M_identity <- matrix(0, 
                      nrow = my_size, 
                      ncol = my_size)
@@ -13,7 +13,7 @@ print(M_identity)
 Question
 ========
 
-Within an R session, create an identity matrix (value 1 in the diagonal, zero in any other) of size 3X3. Tip: use the `diag` function to define the diagonal of the matrix.
+Within an R session, create an identity matrix (value 1 in the diagonal, zero in any other) of size `r my_size`X`r my_size`. Tip: use the `diag` function to define the diagonal of the matrix.
 
 
 Solution

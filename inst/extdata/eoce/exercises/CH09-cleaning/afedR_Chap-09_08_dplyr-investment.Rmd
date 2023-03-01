@@ -14,8 +14,8 @@ df_FTSE_daily <- yfR::yf_get(ticker,
 trade_window <- 30 
 
 # find largest drops
-largest_drops <- df_FTSE_daily %>%
-  arrange(ret_adjusted_prices) %>%
+largest_drops <- df_FTSE_daily |>
+  arrange(ret_adjusted_prices) |>
   slice(1:20)
 
 # There are many ways to solve the exercise. 
@@ -28,7 +28,7 @@ for (i_date in seq_along(largest_drops$ref_date)) {
   
   my_date <- largest_drops$ref_date[i_date]
   # filter data to keep only datapoints in each horizon
-  temp_df <- df_FTSE_daily %>%
+  temp_df <- df_FTSE_daily |>
     filter(ref_date >= my_date,
            ref_date <= my_date + trade_window)
   

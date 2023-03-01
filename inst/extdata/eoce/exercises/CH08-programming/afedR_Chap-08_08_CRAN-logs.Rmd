@@ -22,8 +22,8 @@ library(lubridate)
 library(stringr)
 library(dplyr)
 
-available_links <- read_html('http://cran-logs.rstudio.com/') %>%
-  html_nodes(css = 'a') %>%
+available_links <- read_html('http://cran-logs.rstudio.com/') |>
+  html_nodes(css = 'a') |>
   html_attr('href')
 
 # only keep links for R download (those with -r.csv.gz pattern)
