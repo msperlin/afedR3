@@ -16,7 +16,7 @@ my_answers <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Define another object called `seq_2` containing a sequence of size 1000, with values between 0 and 100. What is the standard deviation (function` sd`) of this sequence?
+Define another object called `seq_2` containing a sequence of size 1000, with values between 0 and 100. What is the standard deviation (function `sd()`) of this sequence?
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")

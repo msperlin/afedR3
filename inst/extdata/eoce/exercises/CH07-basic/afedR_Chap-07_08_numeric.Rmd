@@ -22,7 +22,7 @@ my_answers <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Create a $z_i$ vector according to the following formula where $x_i = 1 ... 50$ and $y_i = 50 ... 1$. What is the sum of the elements of $z_i$? Tip: check out how the `dplyr::lag` function works.
+Create a $z_i$ vector according to the following formula where $x_i = 1 ... 50$ and $y_i = 50 ... 1$. What is the sum of the elements of $z_i$? Tip: check out how the `dplyr::lag()` function works.
 
 $$
 z_i=\frac{y_i - x_{i-1}}{y_{i-2}}

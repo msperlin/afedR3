@@ -18,7 +18,7 @@ my_answers <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Bind the vector of characters in `my_book` into a single object  called `full_text` using command `paste0(my_book, collapse = '\n'`. Using the `stringr` package, how many times is the word `'Vermont'` repeated throughout the text?
+Bind the vector of characters in `my_book` into a single object  called `full_text` using command `paste0(my_book, collapse = '\n')`. Using the `stringr` package, how many times is the word `'Vermont'` repeated throughout the text?
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")
