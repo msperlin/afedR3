@@ -185,6 +185,11 @@ format_fct_ref <- function(pkg,
                            force_index = TRUE,
                            force_pkg = FALSE) {
 
+  pkgs_without_prefix <- c(
+    "stats", "graphics", "grDevices",
+    "utils", "datasets", "methods",
+    "base")
+
   installed_pkgs <- utils::installed.packages()[, 1]
 
   # check if package is installed
@@ -222,7 +227,7 @@ format_fct_ref <- function(pkg,
 
   f_fct <- fs::path(dir_temp, this_str)
 
-  if (!fs::file_exists(f_fct)) {
+  if (!fs::file_exists(f_fct)&(!pkg %in% pkgs_without_prefix)) {
     fs::file_touch(f_fct)
 
     str_pkg <- stringr::str_glue(

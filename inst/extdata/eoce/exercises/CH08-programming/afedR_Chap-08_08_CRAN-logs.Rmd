@@ -63,7 +63,7 @@ my_answers <- afedR3::make_random_answers(my_sol, candidates)
 Question
 ========
 
-On the [Rstudio CRAN logs website](http://cran-logs.rstudio.com/)^[http://cran-logs.rstudio.com/] you will find data on download statistics for the base distribution of R in the _Daily R downloads_ section. Using your programming skills, import all available data between `r first_date` and `r last_date` and aggregate them into a single table. Which country has the highest download count for R?
+On the [Rstudio CRAN logs website](http://cran-logs.rstudio.com/)^[http://cran-logs.rstudio.com/], you'll find data on download statistics for the base distribution of R in the _Daily R downloads_ section. Using your programming skills, import all available data between `r first_date` and `r last_date` and aggregate them into a single table. Which country has the highest download count for R?
 
 
 ```{r questionlist, echo = FALSE, results = "asis"}

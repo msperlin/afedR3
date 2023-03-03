@@ -39,9 +39,8 @@ vec_out <- sapply(sample(df_names$name, 15),
 glimpse(vec_out)
 
 # using purrr
-l_out <- map(sample(df_names$name, 15),
-             say_my_name)
-glimpse(vec_out)
+walk(sample(df_names$name, 15),
+    say_my_name)
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
@@ -53,7 +52,7 @@ my_answers <- rep(NA, 5)
 Question
 ========
 
-Redo previous exercises using function `sapply` or `purrr::map`.
+Redo previous exercises using function `sapply` or `purrr::walk`.
 
 
 
