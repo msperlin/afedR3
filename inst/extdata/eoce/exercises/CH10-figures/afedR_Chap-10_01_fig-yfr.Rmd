@@ -1,18 +1,18 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
+library(yfR)
 library(ggplot2)
 
 tickers <- 'TLSA'
 
-df_tlsa<- BatchGetSymbols(tickers = tickers, 
-                         first.date = Sys.Date() - 500,
-                         last.date = Sys.Date())[[2]]
+df_tlsa<- yf_get(tickers = tickers, 
+                 first_date = Sys.Date() - 500,
+                 last_date = Sys.Date())
 
-p <- ggplot(df_tlsa, aes(x = ref.date, y = price.adjusted)) + 
+p <- ggplot(df_tlsa, aes(x = ref_date, y = price_adjusted)) + 
   geom_line() + 
   labs(title = paste0('Prices for ', tickers) ,
-       subtitle = paste0('Data from ', min(df_tlsa$ref.date), ' to ', 
-                         max(df_tlsa$ref.date)),
+       subtitle = paste0('Data from ', min(df_tlsa$ref_date), ' to ', 
+                         max(df_tlsa$ref_date)),
        caption = "Solution for exercise 01, chapter 10 - afedR")
 
 print(p)
@@ -26,7 +26,7 @@ my_answers <- rep(0, 5)
 Question
 ========
 
-Download TESLA (TSLA) stock data with the `BatchGetSymbols` package for the last 500 days. Display the price line chart adjusted over time using the `ggplot2 :: ggplot` function. Make sure that:
+Download TESLA (TSLA) stock data with the `yfR` package for the last 500 days. Display the price line chart adjusted over time using the `r afedR3::format_fct_text("ggplot")` function. Make sure that:
 
 - x and y axes are correctly named;
 - The chart has a title ("Prices for TESLA"), subtitle ("Data from YYYY-MM-DD to YYYY-MM-DD") and a _caption_ ("Solution for exercise 01, chapter 10 - afedR").

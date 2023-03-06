@@ -1,0 +1,51 @@
+```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
+library(yfR)
+library(dplyr)
+library(readr)
+library(stringr)
+library(ggplot2)
+
+df_prices <- yfR::yf_collection_get(
+  'DOW',
+  first_date = '2015-01-01',
+  freq_data = 'yearly'
+  )
+
+tab <- df_prices |>
+  na.omit() |>
+  group_by(ticker) |>
+  summarise(mean = mean(ret_adjusted_prices),
+            sd = sd(ret_adjusted_prices))
+
+p <- ggplot(tab, aes(x = sd, y = mean)) + 
+  geom_point() + 
+  xlim(0, 0.5) + ylim(-0.5, 0.5)
+
+print(p)
+```
+
+```{r datageneration, echo = FALSE, results = "hide"}
+# none
+my_answers <- rep(0, 5)
+```
+
+Question
+========
+
+Use the `yfR::yf_collection_get()` function to download the **annual** return data for all stocks in the DOW index, from `r '2015-01-01'` to the current day. After that, create the average/variance map by plotting the average **annual* return as the y axis and the standard deviation as the x axis. Tip: You'll find many outliers in the raw data. Make sure that the graph is visible limiting the x and y axes (see the `ggplot2::xlim` and `ggplot2::ylim` functions).
+
+
+Solution
+================
+
+```{r solution, eval=FALSE}
+```
+
+
+Meta-information
+================
+extype: string
+exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
+exname: "function 01"
+exshuffle: TRUE
+

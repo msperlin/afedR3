@@ -35,7 +35,7 @@ ex_name <- 'reporting 12-02'
 Question
 ========
 
-Using the `BatchGetSymbols::GetSP500Stocks` function, select 4 stocks at random and download the adjusted price data for the last three years. Estimate an ARIMA(1, 0, 1) model for each stock and report the result on the R screen with the `texreg::screenreg` function.
+Using the `yfR::GetSP500Stocks` function, select 4 stocks at random and download the adjusted price data for the last three years. Estimate an ARIMA(1, 0, 1) model for each stock and report the result on the R screen with the `texreg::screenreg` function.
 
 
 Solution

@@ -9,7 +9,7 @@ my_answers <- rep(0, 5)
 Question
 ========
 
-Consider the `dataframe` created with the following code:
+Consider a `dataframe` created with the following R code:
 
 ```{r, eval=FALSE}
 library(dplyr)
@@ -26,7 +26,7 @@ df <- bind_rows(tibble(ticker = rep('STOCK 1', my_N),
 print(df)
 ```
 
-Is the `dataframe` format long or wide? Explain your answer.
+Is the `dataframe` in the long or wide format? Explain your answer.
 
 
 Solution

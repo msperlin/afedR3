@@ -11,7 +11,7 @@ df_FTSE_daily <- yfR::yf_get(ticker,
 df_FTSE_monthly <- df_FTSE_daily |>
   mutate(ref_month = format(ref_date, '%Y-%m-01')) |>
   group_by(ref_month) |>
-  summarise_all(last)
+  summarise_all(first)
 
 print(df_FTSE_monthly)
 
@@ -25,7 +25,7 @@ my_answers <- rep(NA, 5)
 Question
 ========
 
-Use the same daily data as the FTSE and reconstruct the data at the monthly frequency, again using the last observation of the period.
+Use the same daily data as the FTSE and reconstruct the data at the monthly frequency, again using the **first** observation of the period.
 
 
 Solution

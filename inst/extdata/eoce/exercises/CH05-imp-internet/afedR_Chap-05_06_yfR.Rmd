@@ -69,6 +69,6 @@ Meta-information
 ================
 extype: schoice
 exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
-exname: "batchgetsymbols 2"
+exname: "yfR 2"
 exshuffle: TRUE
 

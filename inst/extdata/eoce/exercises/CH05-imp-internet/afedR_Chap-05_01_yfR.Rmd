@@ -35,6 +35,6 @@ Meta-information
 ================
 extype: num
 exsolution: `r my_sol`
-exname: "batchgetsymbols"
+exname: "yfR"
 exshuffle: TRUE
 

@@ -50,7 +50,7 @@ my_answers <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Use the `replace_outliers` function (see section \@ref(outliers)) to remove _outliers_ from all numeric columns of the SP500 data previously imported with `my_prob = 0.025`. How many lines were **lost** in this cleaning process?
+Use the `replace_outliers` function from section \@ref(outliers) to remove _outliers_ from all numeric columns of the SP500 data previously imported with `my_prob = 0.025`. How many lines were **lost** in this cleaning process?
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")

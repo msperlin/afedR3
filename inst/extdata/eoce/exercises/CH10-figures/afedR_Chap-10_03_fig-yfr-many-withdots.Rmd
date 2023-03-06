@@ -1,5 +1,5 @@
 ```{r solution, echo = FALSE, results = "hide", message=FALSE, eval=FALSE}
-library(BatchGetSymbols)
+library(yfR)
 library(ggplot2)
 
 tickers <- c('AAPL', 
@@ -7,17 +7,17 @@ tickers <- c('AAPL',
              'AMZN',
              'GOOG') 
 
-df_stocks <- BatchGetSymbols(tickers = tickers, 
-                             first.date = Sys.Date() - 500,
-                             last.date = Sys.Date())[[2]]
+df_stocks <- yfR(tickers = tickers, 
+                             first_date = Sys.Date() - 500,
+                             last_date = Sys.Date())
 
-p <- ggplot(df_stocks, aes(x = ref.date, 
-                           y = price.adjusted,
+p <- ggplot(df_stocks, aes(x = ref_date, 
+                           y = price_adjusted,
                            color = ticker)) + 
   geom_line() + 
   labs(title = paste0('Prices for ', tickers) ,
-       subtitle = paste0('Data from ', min(df_stocks$ref.date), ' to ', 
-                         max(df_stocks$ref.date)),
+       subtitle = paste0('Data from ', min(df_stocks$ref_date), ' to ', 
+                         max(df_stocks$ref_date)),
        caption = "Solution for exercise 03, chapter 10 - afedR")
 
 
