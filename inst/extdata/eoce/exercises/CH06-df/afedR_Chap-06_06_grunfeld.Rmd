@@ -1,11 +1,14 @@
 ```{r solution, echo = FALSE, results = "hide"}
+library(dplyr)
+library(readr)
+
 my_file <- afedR3::data_path('CH11_grunfeld.csv')
 
 df_grunfeld <- read_csv(my_file, 
                         col_types = cols())
 
 # solution
-dplyr::glimpse(df_grunfeld)
+glimpse(df_grunfeld)
 
 my_sol <- nrow(df_grunfeld)
 ```

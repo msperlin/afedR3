@@ -1,15 +1,15 @@
-```{r solution, echo = FALSE, results = "hide"}
+```{r solution, echo = FALSE, eval = FALSE, results = "hide"}
 library(simfinapi)
 library(dplyr)
 library(readr)
 
 # set api key - make sure you got your own at https://simfin.com/data/access/api
-my_api_key <- read_lines('~/GDrive/98-pass-and-bash/.api_key_simfin.txt')
-# get info
+#my_api_key <- read_lines('~/GDrive/98-pass-and-bash/.api_key_simfin.txt')
 
 cache_dir <- fs::path_temp("cache-simfin")
 fs::dir_create(cache_dir)
 
+# get info
 simfinapi::sfa_set_api_key(my_api_key)
 simfinapi::sfa_set_cache_dir(cache_dir)
 
@@ -34,17 +34,17 @@ my_sol <- latest_acc_value
 ```
 
 ```{r datageneration, echo = FALSE, results = "hide"}
-my_answers <- afedR3::make_random_answers(my_sol, 
-                                         is_cash = TRUE)
+#my_answers <- afedR3::make_random_answers(my_sol, 
+ #                                        is_cash = TRUE)
 ```
 
 Question
 ========
 
-With package `simfinapi`, download the PL (profit/loss) statement for FY (final year) data for TESLA (ticker = `r ticker`) for year `r year`.  What is the latest Profit/Loss of the company for that particular year?
+With package `simfinapi`, download the PL (profit/loss) statement for FY (final year) data for TESLA (ticker = "TSLA") for year 2022.  What is the latest Profit/Loss of the company for that particular year?
 
 ```{r questionlist, echo = FALSE, results = "asis"}
-exams::answerlist(my_answers, markup = "markdown")
+#exams::answerlist(my_answers, markup = "markdown")
 ```
 
 Solution
@@ -56,7 +56,7 @@ Solution
 
 Meta-information
 ================
-extype: schoice
+extype: string
 exsolution: `r mchoice2string(c(TRUE, FALSE, FALSE, FALSE, FALSE), single = TRUE)`
 exname: "simfinr 02"
 exshuffle: TRUE
