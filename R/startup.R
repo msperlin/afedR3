@@ -9,7 +9,8 @@
   )
 
   script_files <- list.files(
-    get_pkg_dir("book-scripts")
+    get_pkg_dir("book-scripts"),
+    recursive = TRUE
   )
 
   exercise_files <- list.files(

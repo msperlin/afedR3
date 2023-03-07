@@ -46,7 +46,7 @@ my_answers <- afedR3::make_random_answers(my_sol)
 Question
 ========
 
-Using the `car` package, test the joint hypothesis that the value of alpha is equal to 1.5 and the value of beta is equal to 0.5. What is the value of the resulting F test?
+Using the `r afedR3::format_pkg_text("car")` package, test the joint hypothesis that the value of alpha is equal to `r my_alpha` and the value of beta is equal to `r my_beta`. What is the value of the resulting F test?
 
 ```{r questionlist, echo = FALSE, results = "asis"}
 exams::answerlist(my_answers, markup = "markdown")

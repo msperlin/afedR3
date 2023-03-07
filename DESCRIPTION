@@ -33,7 +33,7 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0), 
     yfR, BatchGetSymbols,
-    GetQuandlData, simfinR, 
+    GetQuandlData,
     tidyquant, car, gvlma,
-    plm, fGarch, fMarkovSwitching
+    plm, fGarch
 Config/testthat/edition: 3

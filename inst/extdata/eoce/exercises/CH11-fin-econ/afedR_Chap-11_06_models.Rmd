@@ -35,7 +35,7 @@ my_answers <- rep(NA, 5)
 Question
 ========
 
-Using the tidyverse functions, `dplyr::group_by` and `dplyr::do`, estimate an ARIMA model for the returns of each stock, available from the import process of previous exercise. In the same output dataframe, create a new column with the forecast in _t + 1_ for each model. Which stock has the highest expected return for _t + 1_?
+Using the tidyverse functions, `dplyr::group_by` and `dplyr::do`, estimate an ARIMA model for the returns of each stock, available from the import process of previous exercise. In the same output `dataframe`, create a new column with the forecast in _t + 1_ for each model. Which stock has the highest expected return for _t + 1_?
 
 
 Solution
