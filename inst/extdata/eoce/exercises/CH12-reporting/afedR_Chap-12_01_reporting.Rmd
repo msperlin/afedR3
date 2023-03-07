@@ -37,7 +37,7 @@ my_f <-  afedR3::data_path('CH11_grunfeld.csv')
 Question
 ========
 
-Using package `afedR3`, import the data from file `r basename(my_f)` and create a descriptive table of the variables. This table should provide enough information for the reader to understand the data. Use `xtable` package to report it in _LaTeX_ or Word/Writer format.
+Using package `r afedR3::format_pkg_text("afedR3")`, import the data from file `r basename(my_f)` and create a descriptive table of the variables. This table should provide enough information for the reader to understand the data. Use `r afedR3::format_pkg_text("xtable")` package to report it in _LaTeX_ or Word/Writer format.
 
 
 
