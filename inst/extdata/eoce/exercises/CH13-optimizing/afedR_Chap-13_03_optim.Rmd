@@ -50,7 +50,7 @@ ex_name <- 'otimizing 13-03'
 Question
 ========
 
-Use the `tictoc` package to compare the performance of the previous function with the native operator `+`, and a loop-based version with the pre-allocation of the result vector. Which alternative has the shortest execution time and why? Does the `Rcpp` version beat the loop version?
+Use the `r afedR3::format_pkg_text("tictoc")` package to compare the performance of the previous function with the native operator `+`, and a loop-based version with the pre-allocation of the result vector. Which alternative has the shortest execution time and why? Does the `Rcpp` version beat the loop version?
 
 
 Solution

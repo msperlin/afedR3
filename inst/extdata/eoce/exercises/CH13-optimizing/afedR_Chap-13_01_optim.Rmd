@@ -11,12 +11,13 @@ Rprof(filename = profiling_file)
 
 # run code
 profiling <- profvis(expr = {
+  
   ticker <- '^GSPC'
   df_prices <- yfR::yf_get(ticker, 
-                           '2000-01-01', do_cache = FALSE)
-  
-  my_garch <- garchFit(formula = ret_adjusted_prices ~ arma(1,1) + garch(1,1), 
-                       data =  na.omit(df_prices) )
+                         '2010-01-01')
+
+  my_arima <- forecast::auto.arima(df_prices$ret_adjusted_prices)
+  summary(my_arima)
 })
 
 # create visualization
@@ -50,7 +51,7 @@ ticker <- '^GSPC'
 df_prices <- yfR::yf_get(ticker, 
                          '2010-01-01')
 
-my_arima <- auto.arima(df_prices$ret_adjusted_prices)
+my_arima <- forecast::auto.arima(df_prices$ret_adjusted_prices)
 summary(my_arima)
 ```
 

@@ -32,7 +32,7 @@ ex_name <-  'otimizing 13-04'
 Question
 ========
 
-Use the `memoise` package to create a memorized version of function `Quandl::Quandl`. Use the new function to import data about the United States Consumer Price Index (quandl code `'FRED/DDOE01USA086NWDB'`). How much percentage speed gain do you get from the second call to the memorized version?
+Use the `r afedR3::format_pkg_text("memoise")` package to create a memorized version of function `Quandl::Quandl`. Use the new function to import data about the United States Consumer Price Index (quandl code `'FRED/DDOE01USA086NWDB'`). How much percentage speed gain do you get from the second call to the memorized version?
 
 
 Solution
