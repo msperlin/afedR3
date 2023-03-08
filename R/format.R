@@ -298,7 +298,7 @@ format_vec_as_text <- function(str_in) {
 #' @examples
 #' format_pkg_text("dplyr")
 format_pkg_text <- function(pkg) {
-  glue::glue("|**{pkg}**|")
+  glue::glue("**{{{pkg}}}**")
 }
 
 #' Format a function string in text

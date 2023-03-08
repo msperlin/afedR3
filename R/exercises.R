@@ -165,8 +165,8 @@ exercises_compile_solution <- function(dir_output = "~/afedR3-solutions",
                                        run_chunks = TRUE) {
   fs::dir_create(dir_output)
 
-  Sys.setenv(vdr_run_chunks = run_chunks,
-             is_eoc_local = TRUE)
+  #Sys.setenv(afedr_run_chunks = run_chunks,
+  #           is_eoc_local = TRUE)
 
   dir_exercises <- exercises_dir_list(TRUE)
 
@@ -184,7 +184,7 @@ exercises_compile_solution <- function(dir_output = "~/afedR3-solutions",
     "html_template.html"
   )
 
-  cli::cli_alert_info("Compiling solutions (may take a while..)")
+  cli::cli_alert_info("Compiling afedR solutions (may take a while..)")
   exams::exams2html(f_exerc, n = 1,
                     solution = TRUE,
                     dir = temp_dir,
@@ -206,7 +206,7 @@ exercises_compile_solution <- function(dir_output = "~/afedR3-solutions",
 
   cli::cli_alert_success("Sucess!")
 
-  cli::cli_alert_info("File available at {fs::path_expand(fs::path(dir_output))}")
+  cli::cli_alert_info("File available at {fs::path_expand(f_out)}")
   cli::cli_alert_info("Search for the file in your file explorer, and open it with your favorite internet browser.")
 
   return(invisible(f_out))
