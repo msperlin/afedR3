@@ -20,7 +20,7 @@ links_get <- function() {
                blog_site = 'https://www.msperlin.com',
                exercises_solutions = 'https://msperlin.com/afedr/afedr-eoc-solutions',
                link_script_example = 'https://github.com/msperlin/afedR3/blob/main/inst/extdata/others/S_Example_Script.R',
-               link_blog_dyn_exerc = 'https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/')
+               link_blog_dyn_exerc = 'https://www.msperlin.com/post/2023-03-10-compiling-exercises-afedR3/')
 
   return(my_l)
 

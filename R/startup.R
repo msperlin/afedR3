@@ -18,7 +18,7 @@
   )
 
   if (interactive()) {
-    cli::cli_h1("Package {{afedR3}} sucessfuly loaded")
+    cli::cli_h1("Package {format_pkg_text('afedR3')} sucessfuly loaded")
 
     cli::cli_h2("Available resources")
 
@@ -34,7 +34,7 @@
     )
 
     cli::cli_alert_success(
-      paste0("\tBook online (1-7 chapters): ", cli::style_hyperlink(my_links$book_online, my_links$book_online ))
+      paste0("\tBook online (partial): ", cli::style_hyperlink(my_links$book_online, my_links$book_online ))
     )
 
     cli::cli_alert_success(
@@ -45,6 +45,11 @@
     cli::cli_alert_success(
       paste0("\tExercise solutions: ", cli::style_hyperlink(my_links$exercises_solutions,
                                                             my_links$exercises_solutions))
+    )
+
+    cli::cli_alert_success(
+      paste0("\tTutorial for compiling exercises: ", cli::style_hyperlink(my_links$link_blog_dyn_exerc,
+                                                            my_links$link_blog_dyn_exerc))
     )
 
     # msg <- paste0('\nPackage ', this_pkg, ' sucessfully loaded!',

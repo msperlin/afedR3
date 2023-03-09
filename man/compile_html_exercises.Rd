@@ -10,8 +10,8 @@ compile_html_exercises(
   class_name = "Sample class",
   exercise_name = paste0("Sample Exercise"),
   links_in_html = dplyr::tibble(text = "Analyzing Financial and Economic Data with R",
-    url = "https://www.msperlin.com/blog/publication/2020_book-afedr-en/"),
-  chapters_to_include = 1:13,
+    url = "https://www.msperlin.com/afedr"),
+  chapters_to_include = 1:3,
   solution = FALSE,
   dir_out = "html exams",
   language = "en"
