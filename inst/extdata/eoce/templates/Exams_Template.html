@@ -17,7 +17,7 @@ body{font-family:Arial;}
 <div style="background-color:#cccccc;color:black;padding:15px; border-style: groove">
 
  <h3>Information about Exercise</h3>
- 
+
  <!--
 <br>
 <a href="https://www.msperlin.com/blog/publication/2020_book-afedr-en/"><img src="https://i.imgur.com/0iqeAGw.jpg" title="Book Cover" style="width:150px;height:200px" /></a>
@@ -25,8 +25,8 @@ body{font-family:Arial;}
 -->
 
 <p>Class Name: CLASS_NAME </p>
-<p>Exercise Name: EXAM_NAME </p> 
-<p>Student Name: STD_NAME </p> 
+<p>Exercise Name: EXAM_NAME </p>
+<p>Student Name: STD_NAME </p>
 <p>Student Version: STD_VERSION </p>
 <p>Number of questions: N_QUESTIONS </p>
 <p>Date and time of compilation: DATE_COMPILE </p>
@@ -42,16 +42,16 @@ EXAM_LINKS
 <h3>Notes:</h3>
 
 <ul>
-    <li>All exercises displayed here part of the book "Analyzing Financial and Economic Data with R", available in <a href = "https://www.msperlin.com/blog/publication/2020_book-afedr-en/">Amazon.com</a>.
+    <li>All exercises displayed here part of the book "Analyzing Financial and Economic Data with R", available in <a href = "https://www.amazon.com/dp/B084LSNXMN">Amazon.com</a>.
     </li>
-    
+
 
     <li>
-        All data files required for solving the exercises are available with Github package <code>afedR</code>. So, first install the package with command <code>devtools::install_github('msperlin/afedR")</code> and, as an example for reading a table from file "example.rds", simply type:
+        All data files required for solving the exercises are available with Github package <code>afedR3</code>. So, first install the package with command <code>devtools::install_github('msperlin/afedR3")</code> and, as an example for reading a table from file "CH11_SP500.csv", simply type:
 
-        <p> 
-            <code>df <- readRDS(afedR::get_data_file('example.rds'))</code>
-        </p> 
+        <p>
+            <code>df <- readRDS(afedR3::data_path('CH11_SP500.csv'))</code>
+        </p>
     </li>
   </ul>
 
@@ -67,7 +67,7 @@ EXAM_LINKS
 
 ##\exinput{exercises}##
 
-</div> 
+</div>
 </body>
 </html>
 

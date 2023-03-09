@@ -18,24 +18,54 @@
   )
 
   if (interactive()) {
-    msg <- paste0('\nPackage ', this_pkg, ' sucessfully loaded!',
-                  ' Here youll find:\n',
-                  '\t', length(data_files), ' data files \n',
-                  '\t', length(script_files), ' book scripts for building data files \n',
-                  '\t', length(exercise_files), ' end of chapter exercises',
-                  '\n\n',
-                  "Useful links:\n",
-                  "\tAuthor site: ", cli::style_hyperlink(my_links$blog_site,
-                                                          my_links$blog_site),
-                  "\n\tBook online (1-7 chapters): ", cli::style_hyperlink(my_links$book_online, my_links$book_online ),
-                  "\n\tAmazon site (full book): ", cli::style_hyperlink(my_links$book_amazon_ebook,
-                                                                        my_links$book_amazon_ebook),
-                  "\n\tExercise solutions: ", cli::style_hyperlink(my_links$exercises_solutions,
-                                                                   my_links$exercises_solutions))
+    cli::cli_h1("Package {{afedR3}} sucessfuly loaded")
+
+    cli::cli_h2("Available resources")
+
+    cli::cli_alert_success("\t{length(data_files)} data files")
+    cli::cli_alert_success("\t{length(script_files)} book scripts for building data files")
+    cli::cli_alert_success("\t{length(exercise_files)} end of chapter exercises")
+
+
+    cli::cli_h2("Useful links")
+    cli::cli_alert_success(
+      paste0("\tAuthor site: ", cli::style_hyperlink(my_links$blog_site,
+                                                                 my_links$blog_site))
+    )
+
+    cli::cli_alert_success(
+      paste0("\tBook online (1-7 chapters): ", cli::style_hyperlink(my_links$book_online, my_links$book_online ))
+    )
+
+    cli::cli_alert_success(
+      paste0("\tAmazon site (full book): ", cli::style_hyperlink(my_links$book_amazon_ebook,
+                                                                 my_links$book_amazon_ebook))
+    )
+
+    cli::cli_alert_success(
+      paste0("\tExercise solutions: ", cli::style_hyperlink(my_links$exercises_solutions,
+                                                            my_links$exercises_solutions))
+    )
+
+    # msg <- paste0('\nPackage ', this_pkg, ' sucessfully loaded!',
+    #               ' Here youll find:\n',
+    #               '\t', length(data_files), ' data files \n',
+    #               '\t', length(script_files), ' book scripts for building data files \n',
+    #               '\t', length(exercise_files), ' end of chapter exercises',
+    #               '\n\n',
+    #               "Useful links:\n",
+    #               "\tAuthor site: ", cli::style_hyperlink(my_links$blog_site,
+    #                                                       my_links$blog_site),
+    #               "\n\tBook online (1-7 chapters): ", cli::style_hyperlink(my_links$book_online, my_links$book_online ),
+    #               "\n\tAmazon site (full book): ", cli::style_hyperlink(my_links$book_amazon_ebook,
+    #                                                                     my_links$book_amazon_ebook),
+    #               "\n\tExercise solutions: ", cli::style_hyperlink(my_links$exercises_solutions,
+    #                                                                my_links$exercises_solutions))
   } else {
     msg <- ''
   }
 
+  msg <- ''
   packageStartupMessage(msg)
 
 }

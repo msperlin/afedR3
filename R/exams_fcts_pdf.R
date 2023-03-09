@@ -48,6 +48,8 @@ compile_pdf_exercises <- function(students_names,
 
   exercises_to_compile <- available_exercises[idx]
 
+  cli::cli_h1('Compiling {length(exercises_to_compile)} exercises to pdf')
+
   # loop all names
   df_files <- dplyr::tibble()
   l_exams <- list()
@@ -57,7 +59,7 @@ compile_pdf_exercises <- function(students_names,
     i_id <- students_ids[i_std]
     i_ver <- i_std
 
-    message('Building exercise for ', i_name)
+    cli::cli_alert_info('Compiling exercises to {i_name}')
     my_temp_dir <- file.path(tempdir(), paste0('exams-pdf-',i_name))
 
     f_out <- tempfile(fileext = '.tex')
@@ -78,7 +80,6 @@ compile_pdf_exercises <- function(students_names,
                     exam_links = rep(list(links_in_html), n_ver),
                     exercise_name = exercise_name)
 
-    message('\tBuilding pdf')
     suppressWarnings({
       my_exam <- exams::exams2pdf(file = exercises_to_compile,
                                   n = 1,
@@ -109,7 +110,7 @@ compile_pdf_exercises <- function(students_names,
                                  stringr::str_c('Ver ', sprintf("%02d",i_ver)), '_',
                                  i_name, '.pdf'))
 
-    message('\tCopying final pdf')
+    cli::cli_alert_success('\tCopying final pdf')
     file.copy(from = pdf_file, to = out_file,
               overwrite = TRUE)
 
@@ -120,6 +121,7 @@ compile_pdf_exercises <- function(students_names,
   # save output
   solutions_out <- build_answer_key(my_exam = l_exams, students_names = students_names)
 
+  cli::cli_alert_success("Done! Files available at {dir_out}")
   return(solutions_out)
 }
 
@@ -163,7 +165,7 @@ add_tex_content <- function(f_in,
     student_name <- 'ZZ-NO NAME'
   }
 
-  message('\tAdding content to tex')
+  cli::cli_alert_success('\tAdding content to tex')
 
   tex_content <- paste0(readr::read_lines(f_in), collapse = '\n')
 

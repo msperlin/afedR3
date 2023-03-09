@@ -29,8 +29,8 @@ compile_html_exercises <- function(students_names,
                              class_name = 'Sample class',
                              exercise_name = paste0('Sample Exercise'),
                              links_in_html = dplyr::tibble(text = 'Analyzing Financial and Economic Data with R',
-                                                           url = 'https://www.msperlin.com/blog/publication/2020_book-afedr-en/'),
-                             chapters_to_include = 1:13,
+                                                           url = 'https://www.msperlin.com/afedr'),
+                             chapters_to_include = 1:3,
                              solution = FALSE,
                              dir_out = 'html exams',
                              language = 'en') {
@@ -48,7 +48,7 @@ compile_html_exercises <- function(students_names,
     stop('Arg chapters_to_include should be between 1 and 13.')
   }
 
-  path_exercises <- system.file('extdata/exams_files/02-EOCE-Rmd', package = 'afedR')
+  path_exercises <- system.file('extdata/exams_files/02-EOCE-Rmd', package = 'afedR3')
   available_exercises <- list.files(path_exercises,
                                     full.names = TRUE,
                                     recursive = TRUE, pattern = '.Rmd')
@@ -65,7 +65,7 @@ compile_html_exercises <- function(students_names,
 
   # set template
   template_html_file <- system.file('extdata/exams_files/templates/Exams_Template.html',
-                                    package = 'afedR')
+                                    package = 'afedR3')
 
   my_temp_dir <- file.path(tempdir(), paste0('exams files ',
                                              basename(tempfile())) )

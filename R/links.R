@@ -16,9 +16,9 @@ links_get <- function() {
                book_amazon_print = "https://www.amazon.com/dp/171062731X",
                book_amazon_hardcover = "https://www.amazon.com/dp/B08XSL5R4X",
                book_github = 'https://github.com/msperlin/afedR3',
-               book_online = "https://www.msperlin.com/afedR",
+               book_online = "https://www.msperlin.com/afedr",
                blog_site = 'https://www.msperlin.com',
-               exercises_solutions = 'https://www.msperlin.com',   # TODO
+               exercises_solutions = 'https://msperlin.com/afedr/afedr-eoc-solutions',
                link_script_example = 'https://github.com/msperlin/afedR3/blob/main/inst/extdata/others/S_Example_Script.R',
                link_blog_dyn_exerc = 'https://www.msperlin.com/post/2021-02-28-dynamic-exercises-afedr/')
 
