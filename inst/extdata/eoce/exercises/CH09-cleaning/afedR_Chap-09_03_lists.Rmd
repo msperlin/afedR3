@@ -37,9 +37,15 @@ Consider the following list:
 ```{r}
 library(dplyr)
 
-my_l <- list(df1 = tibble(x = 1:100, y = runif(100)),
-             df2 = tibble(x = 1:100, y = runif(100), v = runif(100)),
-             df3 = tibble(x = 1:100, y = runif(100), z = runif(100)) )
+my_l <- list(df1 = tibble(x = 1:100, 
+                          y = runif(100)),
+             df2 = tibble(x = 1:100, 
+                          y = runif(100), 
+                          v = runif(100)),
+             df3 = tibble(x = 1:100, 
+                          y = runif(100), 
+                          z = runif(100)) 
+            )
 ```
 
 Add all `dataframes` in `my_l` to a single object using `do.call` or `dplyr::bind_rows` functions. What happened to the `df1` data where `v` and `z` columns do not exist?
