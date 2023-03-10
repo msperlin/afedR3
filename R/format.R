@@ -132,10 +132,10 @@ format_pkg_citation <- function(pkg,
   my_engine <- knitr::pandoc_to()
 
   if (is.null(my_engine)) {
-    folder_db_citation <- fs::path_temp("GENERIC--pkg-citations")
+    folder_db_citation <- fs::file_temp("GENERIC--pkg-citations_")
   } else {
-    folder_db_citation <- fs::path_temp(
-      stringr::str_glue("{my_engine}--pkg-citations")
+    folder_db_citation <- fs::file_temp(
+      stringr::str_glue("{my_engine}--pkg-citations_")
     )
   }
 
@@ -211,10 +211,10 @@ format_fct_ref <- function(pkg,
   my_engine <- knitr::pandoc_to()
 
   if (is.null(my_engine)) {
-    dir_temp <- fs::path(fs::path_temp(), "GENERIC--fct-citations")
+    dir_temp <- fs::path(fs::file_temp(), "GENERIC--fct-citations_")
   } else {
-    dir_temp <- fs::path(fs::path_temp(),
-                         stringr::str_glue("{my_engine}--fct-citations")
+    dir_temp <- fs::path(fs::file_temp(),
+                         stringr::str_glue("{my_engine}--fct-citations_")
     )
   }
 
