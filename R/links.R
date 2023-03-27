@@ -13,9 +13,9 @@ links_get <- function() {
   my_l <- list(
     book_blog_site  = 'https://www.msperlin.com/publication/2020_book-afedr-en/',
     book_blog_zip = 'https://www.msperlin.com/files/afedr-files/afedR-code-and-data.zip',
-    book_amazon_ebook = "https://www.amazon.com/dp/B084LSNXMN",
-    book_amazon_print = "https://www.amazon.com/dp/171062731X",
-    book_amazon_hardcover = "https://www.amazon.com/dp/B08XSL5R4X",
+    book_amazon_ebook = "https://www.amazon.com/dp/B0BZ98RYFW",
+    book_amazon_print = "https://www.amazon.com/dp/B0BZ98RYFW",
+    book_amazon_hardcover = "https://www.amazon.com/dp/B0BZF597GS",
     book_github = 'https://github.com/msperlin/afedR3',
     book_online = "https://www.msperlin.com/afedr",
     blog_site = 'https://www.msperlin.com',
