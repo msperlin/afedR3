@@ -2,6 +2,10 @@ if(!require(ggplot2)) install.packages('ggplot2')
 if(!require(yfR)) install.packages('yfR')
 if(!require(dplyr)) install.packages('dplyr')
 
+library(ggplot2)
+library(yfR)
+library(dplyr)
+
 # set tickers
 my_tickers <- c('META', 'GM')
 
