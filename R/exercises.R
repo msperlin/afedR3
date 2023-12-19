@@ -20,7 +20,9 @@ exercises_build <- function(folder_in, type_doc, print_eoce = TRUE) {
 
   link_eoc_exercises <- links_get()$book_blog
 
-  files_in <- fs::dir_ls(folder_in)
+  files_in <- fs::dir_ls(folder_in,
+                         type = "file",
+                         glob = ".Rmd")
 
   my_counter <- 1
 
